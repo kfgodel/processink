@@ -6,11 +6,11 @@ package info.kfgodel.processink.api
  * Created by kfgodel on 26/10/15.
  */
 interface SketchRunner {
-    /**
-     * Runs the given sketch to display its contents using Processing.<br<
-     * This method is non-blocking and a separate thread will handle the sketch processing, returning inmediately
-     * after invocation
-     * @param sketch The sketch that will be displayed
-     */
-    fun run(sketch: ProcessingSketch)
+  /**
+   * Runs the given sketch to display its contents using Processing.<br<
+   * This method is non-blocking and a separate thread will handle the sketch processing, returning inmediately
+   * after invocation
+   * @param sketch The sketch that will be displayed
+   */
+  fun run(sketch: ProcessingSketch)
 }

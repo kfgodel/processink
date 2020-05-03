@@ -1,14 +1,14 @@
 package info.kfgodel.processink
 
 import hello.tests.info.kfgodel.processink.TestSketch
-import info.kfgodel.processink.impl.runner.SketchToPAppletAdapter
+import info.kfgodel.processink.impl.runner.ProcessingApplet
 import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
   logger.info("Iniciando {}", Thread.currentThread().name)
   val sketch = TestSketch()
-  SketchToPAppletAdapter.run(sketch)
+  ProcessingApplet.run(sketch)
   logger.info("Finalizando {}", Thread.currentThread().name)
 }
 

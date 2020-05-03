@@ -1,5 +1,9 @@
 package info.kfgodel.processink.api
 
+import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.api.original.ProcessingSettings
+import info.kfgodel.processink.api.original.ProcessingSetup
+
 /**
  * This type represents a user defined processing "sketch" visualization.<br>
  * The sketch represents what the user wants Processing to do when it's run.<br>
@@ -8,32 +12,35 @@ package info.kfgodel.processink.api
  * Created by kfgodel on 26/10/15.
  */
 interface ProcessingSketch {
-    /**
-     * Called when the sketch is initialized to define viewport configuration
-     * and rendering settings
-     * @param configuration The configuration that can be changed before starting the actual display
-     */
-    fun onSettings()
+  /**
+   * Called once by processing before the drawing context is created to setup the pixel environment settings.
+   * Only few operations are allowed.<br>
+   * @see [https://processing.org/reference/settings_.html](https://processing.org/reference/settings_.html)
+   * @param settings The settings instance to configure processing
+   */
+  fun onSettings(settings: ProcessingSettings) {
+    settings.defaultSettings()
+  }
 
-    /**
-     * Invoked after the sketch viewport is initialized but before the drawing code is called.
-     * This is run only once, allowing to configura application state or draw static things
-     * @param processingSetup The setup context available to the sketch
-     */
-    fun onSetup()
+  /**
+   * Called once after the sketch drawing context is created but before actual drawing is done. Allows configuring
+   * the pixel environment settings as well as loading resources (or other draw operations).
+   * @see [https://processing.org/reference/setup_.html](https://processing.org/reference/setup_.html)
+   * @param setup The setup instance to configure processing or load resources
+   */
+  fun onSetup(setup: ProcessingSetup) {
+    setup.defaultSetup()
+  }
 
-    /**
-     * Invoked on every frame after setup has been called to redraw the scene.<br>
-     * How frequent this method gets called depends on the fps configuration of the sketch and
-     * how much each frame takes to render. If it takes too much the fps goal may not be met.
-     *
-     * @param givenCanvas The processing pixel space that can be drawn on
-     */
-    fun onDraw()
+  /**
+   * Called each frame after setup has been called to change the contents of the viewport in order to update the frame
+   * <br>
+   * How frequent this method gets called depends on the fps configuration of the sketch and
+   * how much each frame takes to render. If it takes too much the fps goal may not be met.
+   *
+   * @see [https://processing.org/reference/draw_.html](https://processing.org/reference/draw_.html)
+   * @param givenCanvas The processing pixel space that can be drawn on
+   */
+  fun onDraw(processingApi: ProcessingApi)
 
-    /**
-     * Invoked on a mouse click and release event
-     * @param mouseEvent The processing context of the mouse event
-     */
-    fun onMouseClicked()
 }
