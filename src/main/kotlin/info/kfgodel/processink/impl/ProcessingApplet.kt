@@ -1,10 +1,9 @@
-package info.kfgodel.processink.impl.runner
+package info.kfgodel.processink.impl
 
 import info.kfgodel.processink.api.ProcessingSketch
 import info.kfgodel.processink.api.SketchRunner
 import info.kfgodel.processink.api.original.ProcessingApi
 import processing.core.PApplet
-import processing.event.MouseEvent
 
 
 /**

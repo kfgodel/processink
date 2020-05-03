@@ -39,8 +39,8 @@ interface ProcessingSketch {
    * how much each frame takes to render. If it takes too much the fps goal may not be met.
    *
    * @see [https://processing.org/reference/draw_.html](https://processing.org/reference/draw_.html)
-   * @param givenCanvas The processing pixel space that can be drawn on
+   * @param api The api Processing offers to manipulate the pixel space
    */
-  fun onDraw(processingApi: ProcessingApi)
+  fun onDraw(api: ProcessingApi)
 
 }

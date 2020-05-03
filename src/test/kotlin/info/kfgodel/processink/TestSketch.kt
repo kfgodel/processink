@@ -4,7 +4,6 @@ import info.kfgodel.processink.api.ProcessingSketch
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.api.original.ProcessingSettings
 import info.kfgodel.processink.api.original.ProcessingSetup
-import info.kfgodel.processink.impl.runner.ProcessingApplet
 import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
@@ -21,8 +20,8 @@ class TestSketch : ProcessingSketch  {
     logger.info("onSetup")
   }
 
-  override fun onDraw(processingApi: ProcessingApi) {
+  override fun onDraw(api: ProcessingApi) {
     logger.info("onDraw")
-    processingApi.defaultDraw()
+    api.defaultDraw()
   }
 }

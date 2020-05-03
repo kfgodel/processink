@@ -1,7 +1,7 @@
 package info.kfgodel.processink
 
 import hello.tests.info.kfgodel.processink.TestSketch
-import info.kfgodel.processink.impl.runner.ProcessingApplet
+import info.kfgodel.processink.impl.ProcessingApplet
 import mu.KotlinLogging
 
 private val logger = KotlinLogging.logger {}
