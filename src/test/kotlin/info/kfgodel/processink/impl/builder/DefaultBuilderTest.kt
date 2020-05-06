@@ -61,7 +61,7 @@ class DefaultBuilderTest : KotlinSpec() {
         it("uses custom settings on the sketch"){
           val sketch = builder().build()
 
-          val settings = mockCustomSettings()
+          val settings = mockk<ProcessingSettings>(relaxed = true)
           sketch.onSettings(settings)
 
           verify { settings.fullScreen("a renderer") }
@@ -79,7 +79,7 @@ class DefaultBuilderTest : KotlinSpec() {
         it("uses custom setup on the sketch"){
           val sketch = builder().build()
 
-          val setup = mockCustomSetup()
+          val setup = mockk<ProcessingSetup>(relaxed = true)
           sketch.onSetup(setup)
 
           verify { setup.fullScreen("other renderer") }
@@ -97,7 +97,7 @@ class DefaultBuilderTest : KotlinSpec() {
         it("uses custom draw on the sketch"){
           val sketch = builder().build()
 
-          val api = mockCustomDraw()
+          val api = mockk<ProcessingApi>(relaxed = true)
           sketch.onDraw(api)
 
           verify { api.background(3) }
@@ -108,19 +108,4 @@ class DefaultBuilderTest : KotlinSpec() {
     }
   }
 
-  private fun mockCustomSettings(): ProcessingSettings {
-    val settings = mockk<ProcessingSettings>()
-    every { settings.fullScreen(any()) } just Runs
-    return settings
-  }
-  private fun mockCustomSetup(): ProcessingSetup {
-    val setup = mockk<ProcessingSetup>()
-    every { setup.fullScreen(any()) } just Runs
-    return setup
-  }
-  private fun mockCustomDraw(): ProcessingApi {
-    val api = mockk<ProcessingApi>()
-    every { api.background(any()) } just Runs
-    return api
-  }
 }
