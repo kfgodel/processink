@@ -19,15 +19,18 @@ interface Vector2D : Vector3D {
   operator fun minus(other: Vector2D): Vector2D {
     return V2(this.coordinate1() - other.coordinate1(), this.coordinate2() - other.coordinate2())
   }
-  operator fun times(other: Vector2D): Vector2D {
-    return V2(this.coordinate1() * other.coordinate1(), this.coordinate2() * other.coordinate2())
-  }
-  operator fun div(other: Vector2D): Vector2D {
-    return V2(this.coordinate1() / other.coordinate1(), this.coordinate2() / other.coordinate2())
-  }
+  operator fun times(other: Vector2D) = hadamardProduct(other)
+  operator fun div(other: Vector2D) = hadamardDivision(other)
 
   fun scaledBy(other: Vector1D): Vector2D {
     return V2(this.coordinate1() * other, this.coordinate2() * other)
+  }
+
+  fun hadamardProduct(other: Vector2D): Vector2D {
+    return V2(this.coordinate1() * other.coordinate1(), this.coordinate2() * other.coordinate2())
+  }
+  fun hadamardDivision(other: Vector2D): Vector2D {
+    return V2(this.coordinate1() / other.coordinate1(), this.coordinate2() / other.coordinate2())
   }
 
 }
