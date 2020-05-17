@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
 
   val viewSize = V2(640, 480)
   val sketch = DefaultBuilder()
-    .withSettings { settings -> settings.size(viewSize.coordinate1().toInt(), viewSize.coordinate2().toInt(), PConstants.P2D) }
+    .withSettings { settings -> settings.size(viewSize.component1().toInt(), viewSize.component2().toInt(), PConstants.P2D) }
     .drawing { api ->
       api.background(0xAAAAAAA)
       ball.renderWith(api, viewSize)
@@ -43,6 +43,6 @@ fun main(args: Array<String>) {
 private fun BouncingBall.renderWith(api: ProcessingApi, viewSize: V2) {
   val ellipseCenter = this.position() * viewSize
   val ellipseDimensions = viewSize.scaledBy(this.diameter())
-  api.ellipse(ellipseCenter.coordinate1().toFloat(), ellipseCenter.coordinate2().toFloat(),
-    ellipseDimensions.coordinate1().toFloat(), ellipseDimensions.coordinate2().toFloat())
+  api.ellipse(ellipseCenter.component1().toFloat(), ellipseCenter.component2().toFloat(),
+    ellipseDimensions.component1().toFloat(), ellipseDimensions.component2().toFloat())
 }

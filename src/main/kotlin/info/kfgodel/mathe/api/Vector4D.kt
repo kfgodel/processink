@@ -7,22 +7,31 @@ package info.kfgodel.mathe.api
  * Date: 4/5/20 - 22:54
  */
 interface Vector4D : VectorND {
-  /**
-   * Returns the first component value of this vector.<br>
-   */
-  fun coordinate1(): Vector1D
-  /**
-   * Returns the second component value of this vector
-   */
-  fun coordinate2(): Vector1D
-  /**
-   * Returns the third component value of this vector
-   */
-  fun coordinate3(): Vector1D
-  /**
-   * Returns the fourth component value of this vector
-   */
-  fun coordinate4(): Vector1D
 
-  override fun coordinates() = arrayOf(coordinate1(), coordinate2(), coordinate3(), coordinate4())
+
+  /**
+   * Returns the component vector for the first dimension of this vector.<br>
+   * Named to match data class generated names
+   */
+  fun component1(): Vector1D
+  /**
+   * Returns the component vector for the second dimension of this vector.<br>
+   * Named to match data class generated names
+   */
+  fun component2(): Vector1D
+  /**
+   * Returns the component vector for the third dimension of this vector.<br>
+   * Named to match data class generated names
+   */
+  fun component3(): Vector1D
+  /**
+   * Returns the component vector for the fourth dimension of this vector.<br>
+   * Named to match data class generated names
+   */
+  fun component4(): Vector1D
+
+  /**
+   * Returns the array of the 4 component vectors for each dimension of this vector
+   */
+  override fun components() = arrayOf(component1(), component2(), component3(), component4())
 }

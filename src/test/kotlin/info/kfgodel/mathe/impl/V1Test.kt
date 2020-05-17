@@ -18,15 +18,15 @@ class V1Test : KotlinSpec() {
       describe("dimensions"){
         it("takes a float value as it only dimension") {
           assertThat(vector().toFloat()).isEqualTo(0.3f)
-          assertThat(vector().coordinate1()).isEqualTo(V1(0.3f))
+          assertThat(vector().component1()).isEqualTo(V1(0.3f))
         }
         it("contains only 1 value in the array of values"){
-          assertThat(vector().coordinates()).isEqualTo(arrayOf(V1(0.3f)))
+          assertThat(vector().components()).isEqualTo(arrayOf(V1(0.3f)))
         }
         it("is 0 is asked for other dimensions"){
-          assertThat(vector().coordinate2()).isEqualTo(V1.ZERO)
-          assertThat(vector().coordinate3()).isEqualTo(V1.ZERO)
-          assertThat(vector().coordinate4()).isEqualTo(V1.ZERO)
+          assertThat(vector().component2()).isEqualTo(V1.ZERO)
+          assertThat(vector().component3()).isEqualTo(V1.ZERO)
+          assertThat(vector().component4()).isEqualTo(V1.ZERO)
         }
       }
 

@@ -10,16 +10,16 @@ import info.kfgodel.mathe.api.Vector4D
 /**
  * Declares X as an alias for the first component of a vector
  */
-fun Vector4D.x() = this.coordinate1()
+fun Vector4D.x() = this.component1()
 /**
  * Declares X as an alias for the first component of a vector
  */
-fun Vector4D.y() = this.coordinate2()
+fun Vector4D.y() = this.component2()
 /**
  * Declares X as an alias for the first component of a vector
  */
-fun Vector4D.z() = this.coordinate3()
+fun Vector4D.z() = this.component3()
 /**
  * Declares X as an alias for the first component of a vector
  */
-fun Vector4D.a() = this.coordinate4()
+fun Vector4D.a() = this.component4()

@@ -17,8 +17,4 @@ data class V2(val v1: Vector1D, val v2: Vector1D) : Vector2D {
   constructor(v1: Vector1D, c2: Number) : this(v1,V1(c2))
   constructor(c1: Number, v2: Vector1D) : this(V1(c1),v2)
 
-  override fun coordinate1() = v1
-  override fun coordinate2() = v2
-
-
 }

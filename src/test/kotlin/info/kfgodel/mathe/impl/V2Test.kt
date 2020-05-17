@@ -19,12 +19,12 @@ class V2Test : KotlinSpec() {
 
       describe("dimensions") {
         it("takes two float values as the first and second dimensions") {
-          assertThat(vector().coordinate1()).isEqualTo(V1(0.1f))
-          assertThat(vector().coordinate2()).isEqualTo(V1(0.2f))
+          assertThat(vector().component1()).isEqualTo(V1(0.1f))
+          assertThat(vector().component2()).isEqualTo(V1(0.2f))
         }
         it("is 0 is asked for other dimensions") {
-          assertThat(vector().coordinate3()).isEqualTo(V1.ZERO)
-          assertThat(vector().coordinate4()).isEqualTo(V1.ZERO)
+          assertThat(vector().component3()).isEqualTo(V1.ZERO)
+          assertThat(vector().component4()).isEqualTo(V1.ZERO)
         }
         it("contains 2 values in the array of values") {
           expectValues(vector(), Pair(0.1f, 0.2f))
@@ -73,7 +73,7 @@ class V2Test : KotlinSpec() {
   }
 
   private fun expectValues(vector: V2, expected: Pair<Float, Float>) {
-    assertThat(vector.coordinates()).isEqualTo(arrayOf(V1(expected.first), V1(expected.second)))
+    assertThat(vector.components()).isEqualTo(arrayOf(V1(expected.first), V1(expected.second)))
   }
 
 }

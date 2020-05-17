@@ -9,7 +9,7 @@ package info.kfgodel.mathe.api
 interface VectorND {
 
   /**
-   * Returns all the values for the components of this vector as an Array
+   * Returns all component vectors for each dimension of this vector separated in an Array
    */
-  fun coordinates(): Array<Vector1D>
+  fun components(): Array<Vector1D>
 }

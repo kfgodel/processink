@@ -9,6 +9,12 @@ import info.kfgodel.mathe.impl.V1
  */
 interface Vector3D : Vector4D {
 
-  override fun coordinate4() = V1.ZERO
-  override fun coordinates() = arrayOf(coordinate1(), coordinate2(), coordinate3())
+  /**
+   * Returns the array of the 3 component vectors for each dimension of this vector
+   */
+  override fun components() = arrayOf(component1(), component2(), component3())
+  /**
+   * Returns the zero vector as this has no fourth component
+   */
+  override fun component4() = V1.ZERO
 }

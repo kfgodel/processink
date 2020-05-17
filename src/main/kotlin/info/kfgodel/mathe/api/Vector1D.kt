@@ -10,9 +10,18 @@ import info.kfgodel.mathe.impl.V1
  */
 interface Vector1D : Vector2D, Comparable<Vector1D> {
 
-  override fun coordinates() = arrayOf(coordinate1())
-  override fun coordinate2() = V1.ZERO
-  override fun coordinate1() = this
+  /**
+   * Returns the array containing itself as the component of the only dimension
+   */
+  override fun components() = arrayOf(component1())
+  /**
+   * Returns the zero vector as this has no second component
+   */
+  override fun component2() = V1.ZERO
+  /**
+   * Returns itself as the component of the first and only dimension
+   */
+  override fun component1() = this
 
   /**
    * Returns the float value this vector represents
