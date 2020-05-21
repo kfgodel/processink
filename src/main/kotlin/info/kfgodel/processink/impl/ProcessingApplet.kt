@@ -17,8 +17,6 @@ private val sharedSketch = ThreadLocal<ProcessingSketch>()
  */
 class ProcessingApplet : PApplet(), ProcessingApi {
 
-  private var delegateSketch: ProcessingSketch = sharedSketch.get()
-
   companion object : SketchRunner {
     override fun run(sketch: ProcessingSketch) {
       sharedSketch.set(sketch)
@@ -30,6 +28,11 @@ class ProcessingApplet : PApplet(), ProcessingApi {
       }
     }
   }
+
+  /**
+   * Take the shared sketch from the thread local after processing has instantiated us
+   */
+  private var delegateSketch: ProcessingSketch = sharedSketch.get()
 
   override fun applet() = this
 
