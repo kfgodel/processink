@@ -17,7 +17,7 @@ interface Vector2D : Vector3D {
   /**
    * Returns the zero vector as this has no third component
    */
-  override fun component3() = V1.ZERO
+  override operator fun component3() = V1.ZERO
 
   operator fun plus(other: Vector2D): Vector2D {
     return V2(this.component1() + other.component1(), this.component2() + other.component2())

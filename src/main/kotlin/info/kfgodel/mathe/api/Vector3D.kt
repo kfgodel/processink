@@ -16,5 +16,5 @@ interface Vector3D : Vector4D {
   /**
    * Returns the zero vector as this has no fourth component
    */
-  override fun component4() = V1.ZERO
+  override operator fun component4() = V1.ZERO
 }

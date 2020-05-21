@@ -1,5 +1,6 @@
 package hello.tests.info.kfgodel.processink.demos
 
+import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.mathe.impl.V2
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.demos.ball.BouncingBall
@@ -40,7 +41,7 @@ fun main(args: Array<String>) {
   ProcessingApplet.run(sketch)
 }
 
-private fun BouncingBall.renderWith(api: ProcessingApi, viewSize: V2) {
+private fun BouncingBall.renderWith(api: ProcessingApi, viewSize: Vector2D) {
   val ellipseCenter = this.position() * viewSize
   val ellipseDimensions = viewSize.scaledBy(this.diameter())
   api.ellipse(ellipseCenter.component1().toFloat(), ellipseCenter.component2().toFloat(),

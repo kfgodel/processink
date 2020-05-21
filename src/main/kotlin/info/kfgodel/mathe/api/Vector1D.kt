@@ -17,11 +17,11 @@ interface Vector1D : Vector2D, Comparable<Vector1D> {
   /**
    * Returns the zero vector as this has no second component
    */
-  override fun component2() = V1.ZERO
+  override operator fun component2() = V1.ZERO
   /**
    * Returns itself as the component of the first and only dimension
    */
-  override fun component1() = this
+  override operator fun component1() = this
 
   /**
    * Returns the float value this vector represents
