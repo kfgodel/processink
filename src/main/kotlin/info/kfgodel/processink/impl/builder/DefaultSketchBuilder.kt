@@ -10,7 +10,7 @@ import info.kfgodel.processink.api.original.ProcessingSetup
  * This class is the default implementation of the sketch builder
  * Date: 3/5/20 - 12:33
  */
-class DefaultBuilder : SketchBuilder {
+class DefaultSketchBuilder : SketchBuilder {
 
   private var settingsBehavior: (ProcessingSettings)-> Unit = ProcessingSettings::defaultSettings
   private var setupBehavior: (ProcessingSetup)-> Unit = ProcessingSetup::defaultSetup

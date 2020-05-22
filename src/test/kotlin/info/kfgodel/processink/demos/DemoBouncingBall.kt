@@ -5,7 +5,7 @@ import info.kfgodel.mathe.impl.V2
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.demos.ball.BouncingBall
 import info.kfgodel.processink.impl.ProcessingApplet
-import info.kfgodel.processink.impl.builder.DefaultBuilder
+import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
   }
 
   val viewSize = V2(640, 480)
-  val sketch = DefaultBuilder()
+  val sketch = DefaultSketchBuilder()
     .withSettings { settings -> settings.size(viewSize.component1().toInt(), viewSize.component2().toInt(), PConstants.P2D) }
     .drawing { api ->
       api.background(0xAAAAAAA)

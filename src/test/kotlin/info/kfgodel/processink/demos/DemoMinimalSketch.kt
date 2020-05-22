@@ -1,7 +1,7 @@
 package info.kfgodel.processink.demos
 
 import info.kfgodel.processink.impl.ProcessingApplet
-import info.kfgodel.processink.impl.builder.DefaultBuilder
+import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
 
 /**
  * This script serves as an example of the minimal setup for a processing sketch to run
@@ -9,7 +9,7 @@ import info.kfgodel.processink.impl.builder.DefaultBuilder
  */
 fun main() {
   // Create a sketch with all the defaults
-  val minimalSketch = DefaultBuilder()
+  val minimalSketch = DefaultSketchBuilder()
     .build()
   // Let processing run it
   ProcessingApplet.run(minimalSketch)

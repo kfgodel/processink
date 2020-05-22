@@ -13,10 +13,10 @@ import org.junit.runner.RunWith
  * Date: 3/5/20 - 12:33
  */
 @RunWith(JavaSpecRunner::class)
-class DefaultBuilderTest : KotlinSpec() {
+class DefaultSketchBuilderTest : KotlinSpec() {
   override fun define() {
     describe("a sketch builder") {
-      val builder by let { DefaultBuilder() }
+      val builder by let { DefaultSketchBuilder() }
 
       it("allows creating a default sketch") {
         assertThat(builder().build()).isNotNull()
