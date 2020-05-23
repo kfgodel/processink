@@ -3,10 +3,11 @@ package info.kfgodel.processink.api.ext
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.impl.V2
-import info.kfgodel.processink.api.ext.renderers.ProcessingRenderer
-import info.kfgodel.processink.api.ext.viewports.FullscreenViewport
-import info.kfgodel.processink.api.ext.viewports.WindowViewport
+import info.kfgodel.processink.api.ext.processing.viewport
 import info.kfgodel.processink.api.original.ProcessingSettings
+import info.kfgodel.processink.api.renderers.ProcessingRenderer
+import info.kfgodel.processink.api.viewports.FullscreenViewport
+import info.kfgodel.processink.api.viewports.WindowViewport
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.runner.RunWith

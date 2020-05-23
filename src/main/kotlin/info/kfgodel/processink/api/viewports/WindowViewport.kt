@@ -1,7 +1,7 @@
-package info.kfgodel.processink.api.ext.viewports
+package info.kfgodel.processink.api.viewports
 
 import info.kfgodel.mathe.api.Vector2D
-import info.kfgodel.processink.api.ext.renderers.ProcessingRenderer
+import info.kfgodel.processink.api.renderers.ProcessingRenderer
 import info.kfgodel.processink.api.ext.vector.x
 import info.kfgodel.processink.api.ext.vector.y
 import info.kfgodel.processink.api.original.ProcessingSettings

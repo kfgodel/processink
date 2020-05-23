@@ -1,4 +1,4 @@
-package info.kfgodel.processink.api.ext.viewports
+package info.kfgodel.processink.api.viewports
 
 import info.kfgodel.processink.api.original.ProcessingSettings
 

@@ -1,4 +1,4 @@
-package info.kfgodel.processink.api.ext.renderers
+package info.kfgodel.processink.api.renderers
 
 import processing.core.PConstants
 

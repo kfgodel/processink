@@ -1,7 +1,7 @@
-package info.kfgodel.processink.api.ext
+package info.kfgodel.processink.api.ext.processing
 
-import info.kfgodel.processink.api.ext.viewports.ProcessingViewport
 import info.kfgodel.processink.api.original.ProcessingSettings
+import info.kfgodel.processink.api.viewports.ProcessingViewport
 
 /**
  * This file declares extensions to original Processing API for manipulating the sketch settings

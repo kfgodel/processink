@@ -1,8 +1,9 @@
 package hello.tests.info.kfgodel.processink.demos
 
 import info.kfgodel.mathe.api.Vector2D
-import info.kfgodel.mathe.impl.V2
+import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.api.viewports.WindowViewport
 import info.kfgodel.processink.demos.ball.BouncingBall
 import info.kfgodel.processink.impl.ProcessingApplet
 import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
@@ -10,7 +11,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import mu.KotlinLogging
-import processing.core.PConstants
 
 /**
  * This serves as a demo and a live test of the way processink can be used
@@ -29,9 +29,9 @@ fun main(args: Array<String>) {
     } while (true)
   }
 
-  val viewSize = V2(640, 480)
+  val viewSize = 640 x 480
   val sketch = DefaultSketchBuilder()
-    .withSettings { settings -> settings.size(viewSize.component1().toInt(), viewSize.component2().toInt(), PConstants.P2D) }
+    .withSettings(WindowViewport(viewSize))
     .drawing { api ->
       api.background(0xAAAAAAA)
       ball.renderWith(api, viewSize)

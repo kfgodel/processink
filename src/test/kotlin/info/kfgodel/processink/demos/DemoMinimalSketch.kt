@@ -9,8 +9,8 @@ import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
  */
 fun main() {
   // Create a sketch with all the defaults
-  val minimalSketch = DefaultSketchBuilder()
-    .build()
+  val minimalSketch = DefaultSketchBuilder().build()
+
   // Let processing run it
   ProcessingApplet.run(minimalSketch)
 }

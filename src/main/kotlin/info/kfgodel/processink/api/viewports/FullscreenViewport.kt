@@ -1,7 +1,7 @@
-package info.kfgodel.processink.api.ext.viewports
+package info.kfgodel.processink.api.viewports
 
-import info.kfgodel.processink.api.ext.renderers.ProcessingRenderer
 import info.kfgodel.processink.api.original.ProcessingSettings
+import info.kfgodel.processink.api.renderers.ProcessingRenderer
 
 /**
  * This class represents the viewport configuration where a fullscreen render area is used
