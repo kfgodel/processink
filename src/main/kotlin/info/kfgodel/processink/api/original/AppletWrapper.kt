@@ -8,7 +8,7 @@ import processing.core.PApplet
  */
 interface AppletWrapper {
   /**
-   * Allows access to the original processing applet where all the methos are available
+   * Allows access to the original processing applet where all the methods are available
    */
   fun applet(): PApplet
 }

@@ -1,13 +1,9 @@
-package hello.tests.info.kfgodel.processink.api.ext
+package info.kfgodel.processink.api.ext.vector
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.impl.V1
 import info.kfgodel.mathe.impl.V2
-import info.kfgodel.processink.api.ext.vector.a
-import info.kfgodel.processink.api.ext.vector.x
-import info.kfgodel.processink.api.ext.vector.y
-import info.kfgodel.processink.api.ext.vector.z
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.runner.RunWith
 
