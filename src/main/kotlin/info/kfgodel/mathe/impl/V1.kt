@@ -9,7 +9,7 @@ import info.kfgodel.mathe.api.Vector1D
  *
  * Date: 4/5/20 - 23:12
  */
-inline class V1(val value: Float) : Vector1D {
+inline class V1(override val float: Float) : Vector1D {
   /**
    * Alternate constructors to reduce conversion typing
    */
@@ -21,7 +21,5 @@ inline class V1(val value: Float) : Vector1D {
     @JvmStatic
     val ZERO = V1(0.0f)
   }
-
-  override fun toFloat() = value
 
 }

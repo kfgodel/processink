@@ -44,6 +44,6 @@ fun main(args: Array<String>) {
 private fun BouncingBall.renderWith(api: ProcessingApi, viewSize: Vector2D) {
   val ellipseCenter = this.position() * viewSize
   val ellipseDimensions = viewSize.scaledBy(this.diameter())
-  api.ellipse(ellipseCenter.component1().toFloat(), ellipseCenter.component2().toFloat(),
-    ellipseDimensions.component1().toFloat(), ellipseDimensions.component2().toFloat())
+  api.ellipse(ellipseCenter.component1().float, ellipseCenter.component2().float,
+    ellipseDimensions.component1().float, ellipseDimensions.component2().float)
 }

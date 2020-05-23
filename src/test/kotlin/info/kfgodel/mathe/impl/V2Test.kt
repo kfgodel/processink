@@ -22,11 +22,11 @@ class V2Test : KotlinSpec() {
           assertThat(vector().component1()).isEqualTo(V1(0.1f))
           assertThat(vector().component2()).isEqualTo(V1(0.2f))
         }
-        it("is 0 is asked for other dimensions") {
+        it("is 0 on other dimensions") {
           assertThat(vector().component3()).isEqualTo(V1.ZERO)
           assertThat(vector().component4()).isEqualTo(V1.ZERO)
         }
-        it("contains 2 values in the array of values") {
+        it("contains only 2 components"){
           expectValues(vector(), Pair(0.1f, 0.2f))
         }
       }

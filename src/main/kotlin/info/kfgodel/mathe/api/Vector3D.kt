@@ -1,6 +1,7 @@
 package info.kfgodel.mathe.api
 
 import info.kfgodel.mathe.impl.V1
+import info.kfgodel.mathe.impl.V3
 
 /**
  * This type represents a 3 dimensional vector.<br>
@@ -17,4 +18,44 @@ interface Vector3D : Vector4D {
    * Returns the zero vector as this has no fourth component
    */
   override operator fun component4() = V1.ZERO
+
+  operator fun plus(other: Vector3D): Vector3D {
+    return V3(
+      this.component1() + other.component1(),
+      this.component2() + other.component2(),
+      this.component3() + other.component3()
+    )
+  }
+  operator fun minus(other: Vector3D): Vector3D {
+    return V3(
+      this.component1() - other.component1(),
+      this.component2() - other.component2(),
+      this.component3() - other.component3()
+    )
+  }
+  operator fun times(other: Vector3D) = hadamardProduct(other)
+  operator fun div(other: Vector3D) = hadamardDivision(other)
+
+  fun scaledBy(other: Vector1D): Vector3D {
+    return V3(
+      this.component1() * other,
+      this.component2() * other,
+      this.component3() * other
+    )
+  }
+
+  fun hadamardProduct(other: Vector3D): Vector3D {
+    return V3(
+      this.component1() * other.component1(),
+      this.component2() * other.component2(),
+      this.component3() * other.component3()
+    )
+  }
+  fun hadamardDivision(other: Vector3D): Vector3D {
+    return V3(
+      this.component1() / other.component1(),
+      this.component2() / other.component2(),
+      this.component3() / other.component3()
+    )
+  }
 }

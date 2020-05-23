@@ -9,6 +9,10 @@ import info.kfgodel.mathe.impl.V1
  * Date: 4/5/20 - 22:54
  */
 interface Vector1D : Vector2D, Comparable<Vector1D> {
+  /**
+   * The float value of this vector only component
+   */
+  val float: Float
 
   /**
    * Returns the array containing itself as the component of the only dimension
@@ -24,26 +28,21 @@ interface Vector1D : Vector2D, Comparable<Vector1D> {
   override operator fun component1() = this
 
   /**
-   * Returns the float value this vector represents
+   * Returns the closest int value this vector represents
    */
-  fun toFloat(): Float
-
-  /**
-   * Returns the closes int value this vector represents
-   */
-  fun toInt(): Int = toFloat().toInt()
+  fun toInt(): Int = float.toInt()
 
   operator fun plus(other: Vector1D): Vector1D {
-    return V1(this.toFloat() + other.toFloat())
+    return V1(this.float + other.float)
   }
   operator fun minus(other: Vector1D): Vector1D {
-    return V1(this.toFloat() - other.toFloat())
+    return V1(this.float - other.float)
   }
   operator fun times(other: Vector1D): Vector1D {
-    return V1(this.toFloat() * other.toFloat())
+    return V1(this.float * other.float)
   }
   operator fun div(other: Vector1D): Vector1D {
-    return V1(this.toFloat() / other.toFloat())
+    return V1(this.float / other.float)
   }
   operator fun plus(other: Number): Vector1D {
     return this + V1(other)
@@ -59,7 +58,7 @@ interface Vector1D : Vector2D, Comparable<Vector1D> {
   }
 
   override operator fun compareTo(other: Vector1D): Int {
-    return this.toFloat().compareTo(other.toFloat())
+    return this.float.compareTo(other.float)
   }
 
 }
