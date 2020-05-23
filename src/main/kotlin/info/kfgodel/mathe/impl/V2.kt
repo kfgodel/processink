@@ -9,7 +9,10 @@ import info.kfgodel.mathe.api.Vector2D
  *
  * Date: 4/5/20 - 23:12
  */
-data class V2(val v1: Vector1D, val v2: Vector1D) : Vector2D {
+data class V2(
+  val v1: Vector1D,
+  val v2: Vector1D
+) : Vector2D {
   /**
    * Alternate constructors to reduce conversion typing
    */

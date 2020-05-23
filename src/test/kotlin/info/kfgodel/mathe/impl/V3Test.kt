@@ -1,15 +1,13 @@
-package hello.tests.info.kfgodel.mathe.impl
+package info.kfgodel.mathe.impl
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
-import info.kfgodel.mathe.impl.V1
-import info.kfgodel.mathe.impl.V3
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.runner.RunWith
 
 /**
  * This class verifies the expected behavior for a 3d float vector
- * Date: 5/5/20 - 00:00
+ * Date: 23/5/20 - 00:00
  */
 @RunWith(JavaSpecRunner::class)
 class V3Test : KotlinSpec() {
@@ -65,7 +63,7 @@ class V3Test : KotlinSpec() {
           val result = vector() * other()
           assertThat(result).isEqualTo(V3(0.2f, 0.6f, 1.2f))
         }
-        it("is multiplied using hadamard division") {
+        it("is divided using hadamard division") {
           val result = vector() / other()
           assertThat(result).isEqualTo(V3(0.05f, 0.2f / 3, 0.3f / 4))
         }

@@ -5,6 +5,7 @@ import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.impl.V1
 import info.kfgodel.mathe.impl.V2
 import info.kfgodel.mathe.impl.V3
+import info.kfgodel.mathe.impl.V4
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.runner.RunWith
 
@@ -24,6 +25,9 @@ class VectorCreationTest : KotlinSpec() {
       }
       it("can be done out of 3 numbers"){
         assertThat(1 x 5 x 10).isEqualTo(V3(1f, 5f, 10f))
+      }
+      it("can be done out of 4 numbers"){
+        assertThat(1 x 5 x 10 x 3).isEqualTo(V4(1f, 5f, 10f, 3f))
       }
     }
   }

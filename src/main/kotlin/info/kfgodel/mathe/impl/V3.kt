@@ -4,12 +4,16 @@ import info.kfgodel.mathe.api.Vector1D
 import info.kfgodel.mathe.api.Vector3D
 
 /**
- * This class implements the 2 dimensional vector with single precision floating points
+ * This class implements the 3 dimensional vector with single precision floating points
  * Used on graphics calculations
  *
  * Date: 4/5/20 - 23:12
  */
-data class V3(val v1: Vector1D, val v2: Vector1D, val v3: Vector1D) : Vector3D {
+data class V3(
+  val v1: Vector1D,
+  val v2: Vector1D,
+  val v3: Vector1D
+) : Vector3D {
   /**
    * Alternate constructors to reduce conversion typing
    */

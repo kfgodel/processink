@@ -1,4 +1,4 @@
-package hello.tests.info.kfgodel.mathe.impl
+package info.kfgodel.mathe.impl
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
@@ -59,7 +59,7 @@ class V2Test : KotlinSpec() {
           val result = vector() * other()
           assertThat(result).isEqualTo(V2(0.2f, 0.6f))
         }
-        it("is multiplied using hadamard division") {
+        it("is divided using hadamard division") {
           val result = vector() / other()
           assertThat(result).isEqualTo(V2(0.05f, 0.2f / 3))
         }

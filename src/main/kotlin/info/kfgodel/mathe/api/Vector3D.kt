@@ -36,7 +36,7 @@ interface Vector3D : Vector4D {
   operator fun times(other: Vector3D) = hadamardProduct(other)
   operator fun div(other: Vector3D) = hadamardDivision(other)
 
-  fun scaledBy(other: Vector1D): Vector3D {
+  override fun scaledBy(other: Vector1D): Vector3D {
     return V3(
       this.component1() * other,
       this.component2() * other,
