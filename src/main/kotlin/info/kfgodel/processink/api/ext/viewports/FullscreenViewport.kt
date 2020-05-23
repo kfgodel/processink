@@ -12,7 +12,7 @@ class FullscreenViewport(
   private val displayId: Int? = null
 ) : ProcessingViewport {
 
-  override fun accept(settings: ProcessingSettings) {
+  override fun invoke(settings: ProcessingSettings) {
     if(renderer == null){
       if(displayId == null){
         settings.fullScreen()

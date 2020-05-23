@@ -16,7 +16,7 @@ class WindowViewport(
   private val outputPath: String? = null
 ) : ProcessingViewport {
 
-  override fun accept(settings: ProcessingSettings) {
+  override fun invoke(settings: ProcessingSettings) {
     if(renderer == null){
       settings.size(size.x().toInt(), size.y().toInt())
     }else{

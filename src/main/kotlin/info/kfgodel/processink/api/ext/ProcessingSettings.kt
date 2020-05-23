@@ -12,5 +12,5 @@ import info.kfgodel.processink.api.original.ProcessingSettings
  * Configures the sketch display area and renderer
  */
 fun ProcessingSettings.viewport(viewport: ProcessingViewport) {
-  viewport.accept(this)
+  viewport.invoke(this)
 }
