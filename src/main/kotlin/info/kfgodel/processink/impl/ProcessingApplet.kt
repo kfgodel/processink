@@ -3,6 +3,7 @@ package info.kfgodel.processink.impl
 import info.kfgodel.processink.api.ProcessingSketch
 import info.kfgodel.processink.api.SketchRunner
 import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
 import processing.core.PApplet
 
 
@@ -30,9 +31,10 @@ class ProcessingApplet : PApplet(), ProcessingApi {
   }
 
   /**
-   * Take the shared sketch from the thread local after processing has instantiated us
+   * Take the shared sketch from the thread local after processing has instantiated us.<br>
+   * It uses an empty sketch if none is found on the threadlocal to avoid NPE
    */
-  private var delegateSketch: ProcessingSketch = sharedSketch.get()
+  private var delegateSketch: ProcessingSketch = sharedSketch.get() ?: DefaultSketchBuilder().build()
 
   override fun applet() = this
 
@@ -53,6 +55,10 @@ class ProcessingApplet : PApplet(), ProcessingApi {
   override fun defaultDraw() {
     super.draw()
   }
+
+  override fun width() = this.width
+  override fun height() = this.height
+
   override fun draw() {
     delegateSketch.onDraw(this)
   }

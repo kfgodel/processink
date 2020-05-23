@@ -4,7 +4,8 @@ import info.kfgodel.processink.api.original.ProcessingSettings
 import info.kfgodel.processink.api.renderers.ProcessingRenderer
 
 /**
- * This class represents the viewport configuration where a fullscreen render area is used
+ * This class represents the viewport configuration where a fullscreen render area is used.<br>
+ * See for processing docs for semantics of this viewport type: https://processing.org/reference/fullScreen_.html
  * Date: 22/5/20 - 00:13
  */
 class FullscreenViewport(

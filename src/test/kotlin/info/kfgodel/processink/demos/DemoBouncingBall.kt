@@ -1,7 +1,7 @@
 package hello.tests.info.kfgodel.processink.demos
 
-import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.mathe.api.ext.x
+import info.kfgodel.processink.api.ext.processing.size
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.api.viewports.WindowViewport
 import info.kfgodel.processink.demos.ball.BouncingBall
@@ -19,9 +19,8 @@ import mu.KotlinLogging
 private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
   val ball = BouncingBall.createDefault()
-  /**
-   * Animate the ball using co-routine threads
-   */
+
+  // Animate the ball using co-routine threads
   GlobalScope.launch {
     do {
       ball.move()
@@ -29,21 +28,20 @@ fun main(args: Array<String>) {
     } while (true)
   }
 
-  val viewSize = 640 x 480
   val sketch = DefaultSketchBuilder()
-    .withSettings(WindowViewport(viewSize))
+    .withSettings(WindowViewport(640 x 480))
     .drawing { api ->
       api.background(0xAAAAAAA)
-      ball.renderWith(api, viewSize)
+      ball.renderWith(api)
     }
     .build()
 
   ProcessingApplet.run(sketch)
 }
 
-private fun BouncingBall.renderWith(api: ProcessingApi, viewSize: Vector2D) {
-  val ellipseCenter = this.position() * viewSize
-  val ellipseDimensions = viewSize.scaledBy(this.diameter())
-  api.ellipse(ellipseCenter.component1().float, ellipseCenter.component2().float,
+private fun BouncingBall.renderWith(canvas: ProcessingApi) {
+  val ellipseCenter = this.position() * canvas.size
+  val ellipseDimensions = canvas.size.scaledBy(this.diameter())
+  canvas.ellipse(ellipseCenter.component1().float, ellipseCenter.component2().float,
     ellipseDimensions.component1().float, ellipseDimensions.component2().float)
 }

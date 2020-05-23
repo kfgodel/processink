@@ -7,11 +7,19 @@ package info.kfgodel.processink.api.original
  * Created by tenpines on 26/10/15.
  */
 interface ProcessingCanvas : AppletWrapper {
-
   /**
    * Default behavior implemented by Processing to draw a single frame
    */
   fun defaultDraw()
+
+  /**
+   * Current with of the pixel area
+   */
+  fun width(): Int
+  /**
+   * Current with of the pixel area
+   */
+  fun height(): Int
 
   /**
    * Draws a text string positioned under the indicated coordinates according to the current
