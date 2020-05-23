@@ -42,12 +42,22 @@ class ProcessingSettingsTest : KotlinSpec() {
       }
 
       describe("configured for windowed size") {
-        it("can be configured to a sized window with custom renderer") {
-          settings().viewport(WindowViewport(V2(640,480), "a custom renderer"))
-
-          verify { settings().size(640, 480, "a custom renderer") }
+        it("can use the default renderer on a custom sized window") {
+          settings().viewport(WindowViewport(V2(640,480)))
+          verify { settings().size(640, 480) }
         }
-
+        it("can use a custom renderer on a custom sized window") {
+          settings().viewport(WindowViewport(V2(320,240), ProcessingRenderer.P2D))
+          verify { settings().size(320, 240, PConstants.P2D) }
+        }
+        it("can use a custom file renderer on a custom sized window") {
+          settings().viewport(WindowViewport(V2(300,300), ProcessingRenderer.PDF, "a custom path"))
+          verify { settings().size(300, 300, PConstants.PDF, "a custom path") }
+        }
+        it("ignores the path if no custom renderer is defined") {
+          settings().viewport(WindowViewport(V2(640,480), outputPath = "an ignored path"))
+          verify { settings().size(640, 480) }
+        }
       }
 
 

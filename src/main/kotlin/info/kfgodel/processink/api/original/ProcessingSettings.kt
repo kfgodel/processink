@@ -11,14 +11,31 @@ interface ProcessingSettings : AppletWrapper {
   fun defaultSettings()
 
   /**
-   * Defines the configuration of the view port by setting a size and
-   * a renderer type
+   * Configures the render space to use a window with indicated size using the default renderer
+   * @param width The width of the viewport in pixels
+   * @param height The height of the viewport in pixels
+   * @see [https://processing.org/reference/size_.html](https://processing.org/reference/size_.html)
+   */
+  fun size(width: Int, height: Int)
+
+  /**
+   * Configures the render space to use a window with indicated size and the selected renderer
    * @param width The width of the viewport in pixels
    * @param height The height of the viewport in pixels
    * @param renderer one of the possible renderer constants
    * @see [https://processing.org/reference/size_.html](https://processing.org/reference/size_.html)
    */
-  fun size(width: Int, height: Int, renderer: String?)
+  fun size(width: Int, height: Int, renderer: String)
+
+  /**
+   * Configures the render space area to be output on a file used the selected renderer
+   * @param width The width of the viewport in pixels
+   * @param height The height of the viewport in pixels
+   * @param renderer one of the possible renderer constants
+   * @param outputPath The path where the render output is expected to be produced (depends on the renderer)
+   * @see [https://processing.org/reference/size_.html](https://processing.org/reference/size_.html)
+   */
+  fun size(width: Int, height: Int, renderer: String, outputPath: String)
 
   /**
    * Configures the view to use the fullscreen size (actual size depends on the current display and operating system)
