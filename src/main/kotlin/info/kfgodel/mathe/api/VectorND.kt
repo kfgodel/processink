@@ -12,4 +12,14 @@ interface VectorND {
    * Returns all component vectors for each dimension of this vector separated in an Array
    */
   fun components(): Array<Vector1D>
+
+  /**
+   * Creates a new vector where each component is multiplied by the given vector
+   */
+  fun scaledBy(other: Vector1D): VectorND
+
+  /**
+   * Returns a new vector with the same direction but inverted sense
+   */
+  fun invert(): VectorND
 }

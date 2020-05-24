@@ -2,6 +2,7 @@ package info.kfgodel.mathe.impl
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
+import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.mathe.impl.V1
 import info.kfgodel.mathe.impl.V2
 import org.assertj.core.api.Assertions.assertThat
@@ -69,10 +70,15 @@ class V2Test : KotlinSpec() {
         val result = vector().scaledBy(V1(0.5))
         assertThat(result).isEqualTo(V2(0.05f, 0.1f))
       }
+
+      it("can be inverted") {
+        expectValues(vector().invert(), Pair(-0.1f, -0.2f))
+      }
+
     }
   }
 
-  private fun expectValues(vector: V2, expected: Pair<Float, Float>) {
+  private fun expectValues(vector: Vector2D, expected: Pair<Float, Float>) {
     assertThat(vector.components()).isEqualTo(arrayOf(V1(expected.first), V1(expected.second)))
   }
 

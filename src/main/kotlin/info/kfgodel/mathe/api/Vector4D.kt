@@ -10,7 +10,6 @@ import info.kfgodel.mathe.impl.V4
  */
 interface Vector4D : VectorND {
 
-
   /**
    * Returns the component vector for the first dimension of this vector.<br>
    * Named to match data class generated names
@@ -56,7 +55,7 @@ interface Vector4D : VectorND {
   operator fun times(other: Vector4D) = hadamardProduct(other)
   operator fun div(other: Vector4D) = hadamardDivision(other)
 
-  fun scaledBy(other: Vector1D): Vector4D {
+  override fun scaledBy(other: Vector1D): Vector4D {
     return V4(
       this.component1() * other,
       this.component2() * other,
@@ -81,4 +80,7 @@ interface Vector4D : VectorND {
       this.component4() / other.component4()
     )
   }
+
+  override fun invert(): Vector4D = V4(this.component1().invert(), this.component2().invert(),
+    this.component3().invert(), this.component4().invert())
 }

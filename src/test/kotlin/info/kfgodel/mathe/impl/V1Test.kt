@@ -69,6 +69,11 @@ class V1Test : KotlinSpec() {
           assertThat(V1(0.5) <= V1(0.5)).isTrue()
           assertThat(V1(0.5) >= V1(0.6)).isFalse()
         }
+        it("can be scaled") {
+          val result = vector().scaledBy(other())
+          assertThat(result).isEqualTo(V1(0.6f))
+        }
+
       }
       describe("with other number") {
         val number by let { 2.0 }
@@ -89,7 +94,16 @@ class V1Test : KotlinSpec() {
           val result = vector() / number()
           assertThat(result).isEqualTo(V1(0.15f))
         }
+        it("can be scaled") {
+          val result = vector().scaledBy(number())
+          assertThat(result).isEqualTo(V1(0.6f))
+        }
       }
+
+      it("can be inverted") {
+        assertThat(vector().invert()).isEqualTo(V1(-0.3f))
+      }
+
     }
   }
 

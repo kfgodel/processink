@@ -58,4 +58,7 @@ interface Vector3D : Vector4D {
       this.component3() / other.component3()
     )
   }
+
+  override fun invert(): Vector3D = V3(this.component1().invert(), this.component2().invert(),
+    this.component3().invert())
 }

@@ -6,7 +6,7 @@ package info.kfgodel.processink.api.original
  *
  * Created by tenpines on 26/10/15.
  */
-interface ProcessingCanvas : AppletWrapper {
+interface ProcessingCanvas : AppletWrapper, ProcessingStyle {
   /**
    * Default behavior implemented by Processing to draw a single frame
    */

@@ -2,6 +2,7 @@ package info.kfgodel.mathe.impl
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
+import info.kfgodel.mathe.api.Vector3D
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.runner.RunWith
 
@@ -73,10 +74,14 @@ class V3Test : KotlinSpec() {
         val result = vector().scaledBy(V1(2))
         assertThat(result).isEqualTo(V3(0.2f, 0.4f, 0.6f))
       }
+
+      it("can be inverted") {
+        expectValues(vector().invert(), Triple(-0.1f, -0.2f, -0.3f))
+      }
     }
   }
 
-  private fun expectValues(vector: V3, expected: Triple<Float, Float, Float>) {
+  private fun expectValues(vector: Vector3D, expected: Triple<Float, Float, Float>) {
     assertThat(vector.components()).containsExactly(V1(expected.first), V1(expected.second), V1(expected.third))
   }
 
