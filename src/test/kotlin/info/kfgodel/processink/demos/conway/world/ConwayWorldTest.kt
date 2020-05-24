@@ -23,7 +23,7 @@ class ConwayWorldTest : KotlinSpec() {
 
       val cellStates by let {
         conwayWorld()
-          .getStateInside(FieldOfView.create(-10.0 x -10.0, 10.0 x 10.0))
+          .getStateInside(DefaultFieldOfView(-10.0 x -10.0, 10.0 x 10.0))
           .activeCellStates()
       }
 

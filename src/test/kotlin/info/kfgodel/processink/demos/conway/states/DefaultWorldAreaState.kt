@@ -13,14 +13,6 @@ class DefaultWorldAreaState(
   private val currentLivingCells: Set<Vector2D>
 ) : WorldAreaState {
 
-  override fun dimension(): Vector2D {
-    return fieldOfView.dimension()
-  }
-
-  override fun makeRelative(absolute: Vector2D): Vector2D {
-    return fieldOfView.makeRelative(absolute)
-  }
-
   override fun activeCellStates(): Map<Vector2D, CellState> {
     val statePerPosition = HashMap<Vector2D, CellState>()
 

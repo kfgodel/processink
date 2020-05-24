@@ -23,21 +23,6 @@ class WorldAreaStateTest : KotlinSpec() {
       val previousCells by let { HashSet<Vector2D>() }
       val areaState by let { DefaultWorldAreaState(fieldOfView(), previousCells(), currentCells()) }
 
-      it("has the dimension of its field of view") {
-        every { fieldOfView().dimension() } returns (4.0 x 5.0)
-
-        assertThat(areaState().dimension()).isEqualTo(4.0 x 5.0)
-      }
-
-      describe("makeRelative") {
-        fieldOfView { FieldOfView.create(-10.0 x -10.0, 20.0 x 20.0) }
-
-        it("translates world absolute coordinates to relative to the area top left corner") {
-          val relativePosition = areaState().makeRelative(0.0 x 0.0)
-          assertThat(relativePosition).isEqualTo(10.0 x 10.0)
-        }
-      }
-
       describe("cellState") {
         val cellStates by let { areaState().activeCellStates() }
         beforeEach {

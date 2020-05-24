@@ -2,8 +2,6 @@ package info.kfgodel.processink.demos.conway.world
 
 import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.processink.demos.conway.states.WorldAreaState
-import java.util.*
-import kotlin.collections.HashSet
 
 /**
  * This type represents the infinite space of cells for conway's game of life
@@ -24,8 +22,8 @@ interface ConwayWorld {
   fun getStateInside(view: FieldOfView): WorldAreaState
 
   companion object {
-    fun create(vararg survivingCells: Vector2D): ConwayWorld {
-      return DefaultConwayWorld(HashSet(Arrays.asList(*survivingCells)))
+    fun create(vararg startingCells: Vector2D): ConwayWorld {
+      return DefaultConwayWorld(setOf(*startingCells))
     }
   }
 }

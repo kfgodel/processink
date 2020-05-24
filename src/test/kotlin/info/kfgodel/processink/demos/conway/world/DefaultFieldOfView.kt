@@ -8,11 +8,11 @@ import info.kfgodel.processink.api.ext.vector.y
  * Implementation of the field of view
  * Created by kfgodel on 14/11/15.
  */
-class FieldOfViewImpl(private val topLeft: Vector2D, private val bottomRight: Vector2D) : FieldOfView {
+class DefaultFieldOfView(private val topLeft: Vector2D, private val bottomRight: Vector2D) : FieldOfView {
   override fun topLeft() = topLeft
   override fun bottomRight() = bottomRight
 
-  override fun dimension(): Vector2D {
+  override fun size(): Vector2D {
     return bottomRight.minus(topLeft)
   }
 

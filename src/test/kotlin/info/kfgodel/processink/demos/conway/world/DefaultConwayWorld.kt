@@ -11,9 +11,9 @@ import kotlin.concurrent.withLock
  * Implementation of the conway game
  * Created by kfgodel on 14/11/15.
  */
-class DefaultConwayWorld(survivingCells: Set<Vector2D>) : ConwayWorld {
-  private var currentLivingCells = survivingCells
-  private var previousLivingCells = survivingCells
+class DefaultConwayWorld(startingCells: Set<Vector2D>) : ConwayWorld {
+  private var currentLivingCells = startingCells
+  private var previousLivingCells = startingCells
   private var stateLock = ReentrantLock()
 
   override fun advanceOneGeneration() {
