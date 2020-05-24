@@ -1,5 +1,6 @@
 package info.kfgodel.mathe.api
 
+import info.kfgodel.mathe.impl.V1
 import info.kfgodel.mathe.impl.V4
 
 /**
@@ -63,6 +64,7 @@ interface Vector4D : VectorND {
       this.component4() * other
     )
   }
+  override fun scaledBy(other: Number) = this.scaledBy(V1(other))
 
   fun hadamardProduct(other: Vector4D): Vector4D {
     return V4(

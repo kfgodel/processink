@@ -3,8 +3,6 @@ package info.kfgodel.mathe.impl
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.api.Vector2D
-import info.kfgodel.mathe.impl.V1
-import info.kfgodel.mathe.impl.V2
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.runner.RunWith
 
@@ -68,6 +66,10 @@ class V2Test : KotlinSpec() {
 
       it("can be scaled by a 1d vector") {
         val result = vector().scaledBy(V1(0.5))
+        assertThat(result).isEqualTo(V2(0.05f, 0.1f))
+      }
+      it("can be scaled by a number") {
+        val result = vector().scaledBy(0.5)
         assertThat(result).isEqualTo(V2(0.05f, 0.1f))
       }
 

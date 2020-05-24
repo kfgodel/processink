@@ -10,7 +10,7 @@ import info.kfgodel.processink.api.visuals.VisualDescription
 
 /**
  * This type represents a rectangle drawing
- * Created by tenpines on 04/11/15.
+ * Created by kfgodel on 04/11/15.
  */
 class RectangleVisual(private val position: Vector2D, private val size: Vector2D) : VisualDescription {
   override fun invoke(canvas: ProcessingCanvas) {

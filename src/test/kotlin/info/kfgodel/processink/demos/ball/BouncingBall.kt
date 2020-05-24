@@ -8,7 +8,7 @@ import info.kfgodel.mathe.impl.V2
 /**
  * This type represents a bouncing ball that moves between a square space of [0,1],[0,1]
  * with a given velocity, bouncing back from each wall
- * Created by tenpines on 30/10/15.
+ * Created by kfgodel on 30/10/15.
  */
 interface BouncingBall {
   /**

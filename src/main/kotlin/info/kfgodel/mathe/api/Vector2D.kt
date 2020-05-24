@@ -31,6 +31,7 @@ interface Vector2D : Vector3D {
   override fun scaledBy(other: Vector1D): Vector2D {
     return V2(this.component1() * other, this.component2() * other)
   }
+  override fun scaledBy(other: Number) = this.scaledBy(V1(other))
 
   fun hadamardProduct(other: Vector2D): Vector2D {
     return V2(this.component1() * other.component1(), this.component2() * other.component2())

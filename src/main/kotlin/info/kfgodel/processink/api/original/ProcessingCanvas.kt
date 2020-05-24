@@ -4,7 +4,7 @@ package info.kfgodel.processink.api.original
  * This type represents the visual space that can be drawn on.<br></br>
  * It has all the methods that are used to draw or modify the canvas
  *
- * Created by tenpines on 26/10/15.
+ * Created by kfgodel on 26/10/15.
  */
 interface ProcessingCanvas : AppletWrapper, ProcessingStyle {
   /**

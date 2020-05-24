@@ -28,12 +28,12 @@ class ConwayWorldTest : KotlinSpec() {
       }
 
       it("starts with the given surviving cells") {
-        assertThat(cellStates().get(2.0 x -1.0)).isEqualTo(CellState.surviving())
-        assertThat(cellStates().get(-1.0 x 0.0)).isEqualTo(CellState.surviving())
-        assertThat(cellStates().get(0.0 x 0.0)).isEqualTo(CellState.surviving())
-        assertThat(cellStates().get(1.0 x 0.0)).isEqualTo(CellState.surviving())
-        assertThat(cellStates().get(2.0 x 0.0)).isEqualTo(CellState.surviving())
-        assertThat(cellStates().get(2.0 x 1.0)).isEqualTo(CellState.surviving())
+        assertThat(cellStates().get(2.0 x -1.0)).isEqualTo(CellState.SURVIVING)
+        assertThat(cellStates().get(-1.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+        assertThat(cellStates().get(0.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+        assertThat(cellStates().get(1.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+        assertThat(cellStates().get(2.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+        assertThat(cellStates().get(2.0 x 1.0)).isEqualTo(CellState.SURVIVING)
       }
 
       describe("when the generation changes") {
@@ -42,21 +42,21 @@ class ConwayWorldTest : KotlinSpec() {
         }
 
         it("kills the cells with less than 2 live neighbors") {
-          assertThat(cellStates().get(-1.0 x 0.0)).isEqualTo(CellState.dying())
+          assertThat(cellStates().get(-1.0 x 0.0)).isEqualTo(CellState.DYING)
         }
         it("keeps cells alive with 2 or 3 live neighbors") {
-          assertThat(cellStates().get(2.0 x -1.0)).isEqualTo(CellState.surviving())
-          assertThat(cellStates().get(0.0 x 0.0)).isEqualTo(CellState.surviving())
-          assertThat(cellStates().get(2.0 x 0.0)).isEqualTo(CellState.surviving())
-          assertThat(cellStates().get(2.0 x 1.0)).isEqualTo(CellState.surviving())
+          assertThat(cellStates().get(2.0 x -1.0)).isEqualTo(CellState.SURVIVING)
+          assertThat(cellStates().get(0.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+          assertThat(cellStates().get(2.0 x 0.0)).isEqualTo(CellState.SURVIVING)
+          assertThat(cellStates().get(2.0 x 1.0)).isEqualTo(CellState.SURVIVING)
         }
         it("kills cells with more than 3 live neighbors") {
-          assertThat(cellStates().get(1.0 x 0.0)).isEqualTo(CellState.dying())
+          assertThat(cellStates().get(1.0 x 0.0)).isEqualTo(CellState.DYING)
         }
         it("revives cells with exactly 3 live neighbors") {
-          assertThat(cellStates().get(0.0 x -1.0)).isEqualTo(CellState.emerging())
-          assertThat(cellStates().get(3.0 x 0.0)).isEqualTo(CellState.emerging())
-          assertThat(cellStates().get(0.0 x 1.0)).isEqualTo(CellState.emerging())
+          assertThat(cellStates().get(0.0 x -1.0)).isEqualTo(CellState.EMERGING)
+          assertThat(cellStates().get(3.0 x 0.0)).isEqualTo(CellState.EMERGING)
+          assertThat(cellStates().get(0.0 x 1.0)).isEqualTo(CellState.EMERGING)
         }
       }
 

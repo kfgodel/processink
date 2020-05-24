@@ -20,13 +20,7 @@ private val logger = KotlinLogging.logger {}
 fun main(args: Array<String>) {
   val ball = BouncingBall.createDefault()
 
-  // Animate the ball using co-routine threads
-  GlobalScope.launch {
-    do {
-      ball.move()
-      delay(150L)
-    } while (true)
-  }
+  animate(ball)
 
   val sketch = DefaultSketchBuilder()
     .withSettings(WindowViewport(640 x 480))
@@ -37,6 +31,16 @@ fun main(args: Array<String>) {
     .build()
 
   ProcessingApplet.run(sketch)
+}
+
+private fun animate(ball: BouncingBall) {
+  // Animate the ball using co-routine threads
+  GlobalScope.launch {
+    do {
+      ball.move()
+      delay(150L)
+    } while (true)
+  }
 }
 
 private fun BouncingBall.renderWith(canvas: ProcessingApi) {

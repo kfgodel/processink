@@ -1,25 +1,20 @@
 package info.kfgodel.processink.demos.conway.states
 
 /**
- * This type represents the state of a cell
- * Created by tenpines on 14/11/15.
+ * This type represents the different states a cell can have in the game.
+ * Date: 24/5/20 - 18:16
  */
-interface CellState {
-    fun whenSurviving(action: Runnable)
-    fun whenDying(action: Runnable)
-    fun whenEmerging(action: Runnable)
-
-    companion object {
-        fun surviving(): CellState {
-            return SurvivingState.Companion.INSTANCE
-        }
-
-        fun dying(): CellState {
-            return DyingState.Companion.INSTANCE
-        }
-
-        fun emerging(): CellState {
-            return EmergingState.Companion.INSTANCE
-        }
-    }
+enum class CellState {
+  /**
+   * Cell is alive and survived previous generation
+   */
+  SURVIVING,
+  /**
+   * Cell has died from previous generation
+   */
+  DYING,
+  /**
+   * Cell was dead and it's now alive
+   */
+  EMERGING;
 }

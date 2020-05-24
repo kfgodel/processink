@@ -21,7 +21,7 @@ class WorldAreaStateTest : KotlinSpec() {
       val fieldOfView by let { mockk<FieldOfView>(relaxed = true) }
       val currentCells by let { HashSet<Vector2D>() }
       val previousCells by let { HashSet<Vector2D>() }
-      val areaState by let { WorldAreaState.create(fieldOfView(), previousCells(), currentCells()) }
+      val areaState by let { DefaultWorldAreaState(fieldOfView(), previousCells(), currentCells()) }
 
       it("has the dimension of its field of view") {
         every { fieldOfView().dimension() } returns (4.0 x 5.0)
@@ -46,18 +46,18 @@ class WorldAreaStateTest : KotlinSpec() {
         it("becomes emerging if the cell is present in current living set but not on previous") {
           currentCells { Sets.newHashSet(1.0 x 2.0) }
           val cellState: CellState? = cellStates().get(1.0 x 2.0)
-          assertThat(cellState).isEqualTo(CellState.emerging())
+          assertThat(cellState).isEqualTo(CellState.EMERGING)
         }
         it("is dying if it's absent in current, and present in previous") {
           previousCells { Sets.newHashSet(1.0 x 2.0) }
           val cellState: CellState? = cellStates().get(1.0 x 2.0)
-          assertThat(cellState).isEqualTo(CellState.dying())
+          assertThat(cellState).isEqualTo(CellState.DYING)
         }
         it("is surviving if it's present in current and previous") {
           currentCells { Sets.newHashSet(1.0 x 2.0) }
           previousCells { Sets.newHashSet(1.0 x 2.0) }
           val cellState: CellState? = cellStates().get(1.0 x 2.0)
-          assertThat(cellState).isEqualTo(CellState.surviving())
+          assertThat(cellState).isEqualTo(CellState.SURVIVING)
         }
         it("excludes cells outside the fieldOfView") {
           currentCells { Sets.newHashSet(1.0 x 2.0) }

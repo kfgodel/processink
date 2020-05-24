@@ -43,6 +43,7 @@ interface Vector3D : Vector4D {
       this.component3() * other
     )
   }
+  override fun scaledBy(other: Number) = this.scaledBy(V1(other))
 
   fun hadamardProduct(other: Vector3D): Vector3D {
     return V3(

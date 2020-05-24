@@ -61,8 +61,8 @@ interface Vector1D : Vector2D, Comparable<Vector1D> {
     return this.float.compareTo(other.float)
   }
 
-  override fun scaledBy(other: Vector1D) = this * other
-  fun scaledBy(other: Number) = this.times(other)
+  override fun scaledBy(other: Vector1D) = this.times(other)
+  override fun scaledBy(other: Number) = this.times(other)
   override fun invert(): Vector1D = this.scaledBy(-1f)
 
 }

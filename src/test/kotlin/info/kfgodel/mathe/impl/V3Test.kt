@@ -74,6 +74,10 @@ class V3Test : KotlinSpec() {
         val result = vector().scaledBy(V1(2))
         assertThat(result).isEqualTo(V3(0.2f, 0.4f, 0.6f))
       }
+      it("can be scaled by a number") {
+        val result = vector().scaledBy(2)
+        assertThat(result).isEqualTo(V3(0.2f, 0.4f, 0.6f))
+      }
 
       it("can be inverted") {
         expectValues(vector().invert(), Triple(-0.1f, -0.2f, -0.3f))

@@ -1,5 +1,7 @@
 package info.kfgodel.mathe.api
 
+import info.kfgodel.mathe.impl.V1
+
 /**
  * This type represents a vector with an arbitrary amount of dimensions.<br>
  * Here are the methods common to all vectors
@@ -17,6 +19,7 @@ interface VectorND {
    * Creates a new vector where each component is multiplied by the given vector
    */
   fun scaledBy(other: Vector1D): VectorND
+  fun scaledBy(other: Number) = this.scaledBy(V1(other))
 
   /**
    * Returns a new vector with the same direction but inverted sense

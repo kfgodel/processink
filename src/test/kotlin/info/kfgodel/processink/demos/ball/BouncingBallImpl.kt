@@ -9,7 +9,7 @@ import info.kfgodel.processink.api.ext.vector.y
 
 /**
  * Implementation of the bouncing ball
- * Created by tenpines on 30/10/15.
+ * Created by kfgodel on 30/10/15.
  */
 class BouncingBallImpl(
   private var position: Vector2D,
