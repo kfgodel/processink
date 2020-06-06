@@ -5,22 +5,21 @@ import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.api.original.ProcessingSettings
 import info.kfgodel.processink.api.original.ProcessingSetup
-import io.mockk.*
-import org.assertj.core.api.Assertions.assertThat
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.runner.RunWith
 
 /**
  * Date: 3/5/20 - 12:33
  */
 @RunWith(JavaSpecRunner::class)
-class DefaultSketchBuilderTest : KotlinSpec() {
+class BuilderLifeCycleEventsTest : KotlinSpec() {
   override fun define() {
     describe("a sketch builder") {
       val builder by let { DefaultSketchBuilder() }
-
-      it("allows creating a default sketch") {
-        assertThat(builder().build()).isNotNull()
-      }
 
       describe("when creating a default sketch"){
         val sketch by let {builder().build()}

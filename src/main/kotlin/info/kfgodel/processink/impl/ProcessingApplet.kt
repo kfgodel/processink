@@ -4,13 +4,15 @@ import info.kfgodel.processink.api.ProcessingSketch
 import info.kfgodel.processink.api.SketchRunner
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
+import info.kfgodel.processink.impl.events.DefaultMouseEvent
 import processing.core.PApplet
+import processing.event.MouseEvent
 
 
 /**
  * This thread local is used to pass a sketch to the adapter before Processing instantiates it
  */
-private val sharedSketch = ThreadLocal<ProcessingSketch>()
+val sharedSketch = ThreadLocal<ProcessingSketch>()
 
 /**
  * This class extends Processing PApplet class to delegate processing calls to a ProcessingSketch instance
@@ -34,7 +36,7 @@ class ProcessingApplet : PApplet(), ProcessingApi {
    * Take the shared sketch from the thread local after processing has instantiated us.<br>
    * It uses an empty sketch if none is found on the threadlocal to avoid NPE
    */
-  private var delegateSketch: ProcessingSketch = sharedSketch.get() ?: DefaultSketchBuilder().build()
+  private val delegateSketch: ProcessingSketch = sharedSketch.get() ?: DefaultSketchBuilder().build()
 
   override fun applet() = this
 
@@ -61,6 +63,35 @@ class ProcessingApplet : PApplet(), ProcessingApi {
 
   override fun draw() {
     delegateSketch.onDraw(this)
+  }
+
+  override fun mouseClicked(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseClicked, event)
+  }
+  override fun mouseDragged(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseDragged, event)
+  }
+  override fun mouseEntered(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseEntered, event)
+  }
+  override fun mouseExited(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseExited, event)
+  }
+  override fun mouseMoved(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseMoved, event)
+  }
+  override fun mousePressed(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMousePressed, event)
+  }
+  override fun mouseReleased(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseReleased, event)
+  }
+  override fun mouseWheel(event: MouseEvent?) {
+    wrapEventAndCall(delegateSketch::onMouseWheel, event)
+  }
+
+  private inline fun wrapEventAndCall(functionToCall: (info.kfgodel.processink.api.events.MouseEvent, ProcessingApi)-> Unit, event: MouseEvent?) {
+    functionToCall.invoke(DefaultMouseEvent(event!!), this)
   }
 
 }

@@ -13,7 +13,4 @@ interface ProcessingApi :
   AppletWrapper,
   ProcessingSettings,
   ProcessingSetup,
-  ProcessingCanvas {
-
-
-}
+  ProcessingCanvas

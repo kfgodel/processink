@@ -1,12 +1,14 @@
 package info.kfgodel.processink.api.builder
 
 import info.kfgodel.processink.api.ProcessingSketch
+import info.kfgodel.processink.api.events.MouseEvent
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.api.original.ProcessingSettings
 import info.kfgodel.processink.api.original.ProcessingSetup
 
 /**
- * This type allows the construction of a complex sketch defining it partially until it's readdy to build
+ * This type allows the construction of a complex sketch defining it configuration partially until
+ * it's ready to be built
  *
  * Date: 3/5/20 - 12:31
  */
@@ -41,6 +43,39 @@ interface SketchBuilder {
    * @param customDraw The block of code to execute in the sketch for each drawing frame
    */
   fun drawing(customDraw: (ProcessingApi) -> Unit): SketchBuilder
+
+  /**
+   * Defines a mouse click event handler to be called for that event
+   */
+  fun whenMouseClicked(clickHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse drag event handler to be called for that event
+   */
+  fun whenMouseDragged(dragHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse into sketch window event handler to be called for that event
+   */
+  fun whenMouseEntered(enteredHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse out of sketch window event handler to be called for that event
+   */
+  fun whenMouseExited(exitedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse button press event handler to be called for that event
+   */
+  fun whenMousePressed(pressedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse button release event handler to be called for that event
+   */
+  fun whenMouseReleased(releasedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse move event handler to be called for that event
+   */
+  fun whenMouseMoved(movedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  /**
+   * Defines a mouse wheel event handler to be called for that event
+   */
+  fun whenMouseWheel(wheelHandler: (MouseEvent, ProcessingApi) -> Unit)
 
 
 }
