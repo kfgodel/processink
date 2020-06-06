@@ -13,6 +13,7 @@ import io.mockk.verify
 import org.junit.runner.RunWith
 
 /**
+ * This test verifies that the builder can configure a sketch with custom life cycle event handlers
  * Date: 3/5/20 - 12:33
  */
 @RunWith(JavaSpecRunner::class)
