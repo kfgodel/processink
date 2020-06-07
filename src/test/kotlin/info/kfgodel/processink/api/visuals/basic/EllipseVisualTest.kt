@@ -9,20 +9,21 @@ import io.mockk.verify
 import org.junit.runner.RunWith
 
 /**
- * This class verifies the correct implementation of a rectangle visual
- * Date: 23/5/20 - 15:20
+ * This test verifies that an ellipse visual correctly represents itself
+ * Date: 6/6/20 - 23:14
  */
 @RunWith(JavaSpecRunner::class)
-class RectangleVisualTest : KotlinSpec() {
+class EllipseVisualTest : KotlinSpec() {
   override fun define() {
-    describe("a rectangle visual") {
-      val visual by let { RectangleVisual(3 x 4, 50 x 60) }
+    describe("an ellipse visual") {
+      val visual by let { EllipseVisual(1 x 2, 100 x 200) }
 
-      it("draws a rectangle when applied on a processing canvas") {
+      it("draws an ellipse when applied on a processing canvas") {
         val canvas = mockk<ProcessingCanvas>(relaxed = true)
+
         visual().invoke(canvas)
 
-        verify { canvas.rect(3f, 4f, 50f, 60f) }
+        verify { canvas.ellipse(1f, 2f, 100f, 200f) }
       }
     }
   }

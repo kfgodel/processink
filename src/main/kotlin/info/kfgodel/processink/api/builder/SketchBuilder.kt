@@ -47,35 +47,35 @@ interface SketchBuilder {
   /**
    * Defines a mouse click event handler to be called for that event
    */
-  fun whenMouseClicked(clickHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseClicked(clickHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse drag event handler to be called for that event
    */
-  fun whenMouseDragged(dragHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseDragged(dragHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse into sketch window event handler to be called for that event
    */
-  fun whenMouseEntered(enteredHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseEntered(enteredHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse out of sketch window event handler to be called for that event
    */
-  fun whenMouseExited(exitedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseExited(exitedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse button press event handler to be called for that event
    */
-  fun whenMousePressed(pressedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMousePressed(pressedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse button release event handler to be called for that event
    */
-  fun whenMouseReleased(releasedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseReleased(releasedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse move event handler to be called for that event
    */
-  fun whenMouseMoved(movedHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseMoved(movedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
   /**
    * Defines a mouse wheel event handler to be called for that event
    */
-  fun whenMouseWheel(wheelHandler: (MouseEvent, ProcessingApi) -> Unit)
+  fun whenMouseWheel(wheelHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder
 
 
 }

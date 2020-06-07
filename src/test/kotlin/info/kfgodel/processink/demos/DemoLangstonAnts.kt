@@ -19,16 +19,16 @@ fun main() {
   val world = AntWorld.create(200 x 150)
   animate(world)
 
-  val conwaySketch = DefaultSketchBuilder()
+  val langstonSketch = DefaultSketchBuilder()
     .withSettings(WindowViewport(800 x 600))
     .drawing(AntWorldVisual(world))
     .build()
 
-  ProcessingApplet.run(conwaySketch)
+  ProcessingApplet.run(langstonSketch)
 }
 
 private fun animate(world: AntWorld) {
-  // Evolve every half a second to produce the animation
+  // Evolve move the ant every 10ms
   GlobalScope.launch {
     do {
       delay(10L)

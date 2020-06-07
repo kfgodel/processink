@@ -57,36 +57,44 @@ class DefaultSketchBuilder : SketchBuilder {
     return this
   }
 
-  override fun whenMouseClicked(clickHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseClicked(clickHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseClickedHandler = clickHandler
+    return this
   }
 
-  override fun whenMouseDragged(dragHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseDragged(dragHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseDraggedHandler = dragHandler
+    return this
   }
 
-  override fun whenMouseEntered(enteredHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseEntered(enteredHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseEnteredHandler = enteredHandler
+    return this
   }
 
-  override fun whenMouseExited(exitedHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseExited(exitedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseExitedHandler = exitedHandler
+    return this
   }
 
-  override fun whenMousePressed(pressedHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMousePressed(pressedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mousePressedHandler = pressedHandler
+    return this
   }
 
-  override fun whenMouseReleased(releasedHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseReleased(releasedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseReleasedHandler = releasedHandler
+    return this
   }
 
-  override fun whenMouseMoved(movedHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseMoved(movedHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseMovedHandler = movedHandler
+    return this
   }
 
-  override fun whenMouseWheel(wheelHandler: (MouseEvent, ProcessingApi) -> Unit) {
+  override fun whenMouseWheel(wheelHandler: (MouseEvent, ProcessingApi) -> Unit): SketchBuilder {
     this.mouseWheelHandler = wheelHandler
+    return this
   }
 
   private fun ignoreMouseEvent(event:MouseEvent, processingApi: ProcessingApi) {

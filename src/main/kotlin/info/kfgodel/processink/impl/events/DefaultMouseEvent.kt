@@ -1,5 +1,7 @@
 package info.kfgodel.processink.impl.events
 
+import info.kfgodel.mathe.api.Vector2D
+import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.events.MouseEvent
 
 /**
@@ -9,4 +11,6 @@ import info.kfgodel.processink.api.events.MouseEvent
  * Date: 6/6/20 - 17:22
  */
 inline class DefaultMouseEvent(private val originalEvent: processing.event.MouseEvent) : MouseEvent {
+  override val position: Vector2D
+    get() = originalEvent.x x originalEvent.y
 }
