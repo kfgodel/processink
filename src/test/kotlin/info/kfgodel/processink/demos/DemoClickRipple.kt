@@ -2,6 +2,7 @@ package info.kfgodel.processink.demos
 
 import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.viewports.WindowViewport
+import info.kfgodel.processink.api.visuals.basic.BackgroundVisual
 import info.kfgodel.processink.api.visuals.basic.EllipseVisual
 import info.kfgodel.processink.demos.ripple.RippleWorld
 import info.kfgodel.processink.demos.ripple.SystemWorldClock
@@ -21,11 +22,11 @@ fun main() {
 
   val rippleSketch = DefaultSketchBuilder()
     .withSettings(WindowViewport(640 x 480))
-    .whenMouseClicked { mouseEvent, api ->
+    .whenMousePressed { mouseEvent, api ->
       world.mouseClickedOn(mouseEvent.position)
     }
     .drawing { api ->
-      api.background(-0x55555556)
+      BackgroundVisual(-0x55555556).invoke(api)
       world.ripples().forEach { wave ->
         EllipseVisual(wave.position(), wave.radius() x wave.radius())
           .invoke(api)

@@ -4,6 +4,7 @@ import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.processink.api.ext.processing.size
 import info.kfgodel.processink.api.original.ProcessingCanvas
 import info.kfgodel.processink.api.visuals.VisualDescription
+import info.kfgodel.processink.api.visuals.basic.BackgroundVisual
 import info.kfgodel.processink.api.visuals.basic.RectangleVisual
 import java.awt.Color
 
@@ -14,8 +15,7 @@ import java.awt.Color
 class AntWorldVisual(private val world: AntWorld) : VisualDescription {
 
   override fun invoke(canvas: ProcessingCanvas) {
-    canvas.background(-0x55555556)
-
+    BackgroundVisual(-0x55555556).invoke(canvas)
     val cellSize = calculateCellSize(canvas)
     renderBlackCells(canvas, cellSize)
     renderAnt(canvas, cellSize)

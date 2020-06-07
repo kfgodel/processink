@@ -4,6 +4,7 @@ import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.ext.processing.size
 import info.kfgodel.processink.api.original.ProcessingApi
 import info.kfgodel.processink.api.viewports.WindowViewport
+import info.kfgodel.processink.api.visuals.basic.BackgroundVisual
 import info.kfgodel.processink.demos.ball.BouncingBall
 import info.kfgodel.processink.impl.ProcessingApplet
 import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
@@ -25,7 +26,7 @@ fun main(args: Array<String>) {
   val sketch = DefaultSketchBuilder()
     .withSettings(WindowViewport(640 x 480))
     .drawing { api ->
-      api.background(0xAAAAAAA)
+      BackgroundVisual(0xAAAAAAA).invoke(api)
       ball.renderWith(api)
     }
     .build()
