@@ -1,6 +1,7 @@
 package info.kfgodel.processink.demos.ripple
 
 import info.kfgodel.mathe.api.Vector2D
+import info.kfgodel.mathe.api.ext.x
 
 /**
  * Created by tenpines on 02/11/15.
@@ -17,10 +18,11 @@ class RippleWaveImpl(
     return position
   }
 
-  override fun radius(): Float {
+  override fun size(): Vector2D {
     val maxRadius = 200.0f
     val lifeRatio = elapsedMillis() / lifeSpan.toMillis().toFloat()
-    return maxRadius * lifeRatio
+    val currentRadius = maxRadius * lifeRatio
+    return currentRadius x currentRadius
   }
 
   override val isDead: Boolean

@@ -23,12 +23,12 @@ fun main() {
   val rippleSketch = DefaultSketchBuilder()
     .withSettings(WindowViewport(640 x 480))
     .whenMousePressed { mouseEvent, api ->
-      world.mouseClickedOn(mouseEvent.position)
+      world.createRippleOn(mouseEvent.position)
     }
     .drawing { api ->
       BackgroundVisual(-0x55555556).invoke(api)
       world.ripples().forEach { wave ->
-        EllipseVisual(wave.position(), wave.radius() x wave.radius())
+        EllipseVisual(wave.position(), wave.size())
           .invoke(api)
       }
     }

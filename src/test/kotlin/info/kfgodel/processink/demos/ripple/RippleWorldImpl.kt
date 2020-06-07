@@ -15,7 +15,7 @@ class RippleWorldImpl(private val clock: WorldClock) : RippleWorld {
     return waves
   }
 
-  override fun mouseClickedOn(mousePosition: Vector2D) {
+  override fun createRippleOn(mousePosition: Vector2D) {
     waves.add(RippleWave.create(mousePosition, rippleLifespan(), clock))
   }
 

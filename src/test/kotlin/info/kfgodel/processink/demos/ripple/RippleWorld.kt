@@ -14,10 +14,10 @@ interface RippleWorld {
     fun ripples(): List<RippleWave>
 
     /**
-     * It indicates to this world that a new click has been done
-     * @param mousePosition The position where the click happened
+     * It starts a new riple on this world that will expand on the given position
+     * @param mousePosition The position where the ripple will be created
      */
-    fun mouseClickedOn(mousePosition: Vector2D)
+    fun createRippleOn(mousePosition: Vector2D)
 
     /**
      * @return How much time do ripples last

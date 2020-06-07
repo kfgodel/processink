@@ -9,7 +9,7 @@ import info.kfgodel.mathe.api.Vector2D
  */
 interface RippleWave {
     fun position(): Vector2D
-    fun radius(): Float
+    fun size(): Vector2D
 
     /**
      * Indicates if this ripple has no more activity

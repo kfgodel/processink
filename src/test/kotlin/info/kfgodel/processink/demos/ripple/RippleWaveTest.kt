@@ -23,14 +23,14 @@ class RippleWaveTest : KotlinSpec() {
         assertThat(ripple().position()).isEqualTo(1 x 2)
       }
 
-      it("starts with a 0 radius") {
+      it("starts with a 0 size") {
         every { clock().currentMillis() } returns 0L andThen 0L // On creation and on radius invocation
-        assertThat(ripple().radius()).isEqualTo(0.0f)
+        assertThat(ripple().size()).isEqualTo(0 x 0)
       }
 
-      it("ends with a 200 radius at the end of its lifespan") {
+      it("ends with a 200 size radius at the end of its lifespan") {
         every { clock().currentMillis() } returns 0L andThen TimeUnit.SECONDS.toMillis(2) // On creation and on radius invocation
-        assertThat(ripple().radius()).isEqualTo(200.0f)
+        assertThat(ripple().size()).isEqualTo(200 x 200)
       }
 
       it("is dead after its lifespan") {

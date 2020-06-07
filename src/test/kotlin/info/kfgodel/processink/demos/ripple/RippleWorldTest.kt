@@ -29,7 +29,7 @@ class RippleWorldTest : KotlinSpec() {
 
       describe("when the mouse is clicked") {
         beforeEach {
-          rippleWorld().mouseClickedOn(1 x 2)
+          rippleWorld().createRippleOn(1 x 2)
         }
         it("creates a new ripple") {
           assertThat(rippleWorld().ripples()).hasSize(1)
