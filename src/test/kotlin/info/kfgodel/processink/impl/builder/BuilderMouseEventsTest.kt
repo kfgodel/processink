@@ -3,7 +3,7 @@ package info.kfgodel.processink.impl.builder
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.processink.api.events.MouseEvent
-import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.api.extended.ProcessinkApi
 import io.mockk.Called
 import io.mockk.mockk
 import io.mockk.verify
@@ -24,7 +24,7 @@ class BuilderMouseEventsTest : KotlinSpec() {
 
         it("ignores all mouse events"){
           val event = mockk<MouseEvent>()
-          val api = mockk<ProcessingApi>()
+          val api = mockk<ProcessinkApi>()
           sketch().onMouseClicked(event, api)
           sketch().onMouseDragged(event, api)
           sketch().onMouseEntered(event, api)
@@ -40,11 +40,11 @@ class BuilderMouseEventsTest : KotlinSpec() {
       }
 
       describe("when customizing mouse event handlers") {
-        val eventHandler by let { mockk<(MouseEvent, ProcessingApi) -> Unit>(relaxed = true) }
+        val eventHandler by let { mockk<(MouseEvent, ProcessinkApi) -> Unit>(relaxed = true) }
         val sketch by let { builder().build() }
 
         val event = mockk<MouseEvent>()
-        val api = mockk<ProcessingApi>()
+        val api = mockk<ProcessinkApi>()
 
         it("call the given handler for mouse clicks") {
           builder().whenMouseClicked(eventHandler())

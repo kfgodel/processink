@@ -3,7 +3,7 @@ package info.kfgodel.processink.api.visuals.basic
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.api.ext.x
-import info.kfgodel.processink.api.original.ProcessingCanvas
+import info.kfgodel.processink.api.extended.ProcessinkCanvas
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.runner.RunWith
@@ -19,7 +19,7 @@ class EllipseVisualTest : KotlinSpec() {
       val visual by let { EllipseVisual(1 x 2, 100 x 200) }
 
       it("draws an ellipse when applied on a processing canvas") {
-        val canvas = mockk<ProcessingCanvas>(relaxed = true)
+        val canvas = mockk<ProcessinkCanvas>(relaxed = true)
 
         visual().invoke(canvas)
 

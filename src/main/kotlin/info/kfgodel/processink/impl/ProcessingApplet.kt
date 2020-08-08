@@ -2,7 +2,8 @@ package info.kfgodel.processink.impl
 
 import info.kfgodel.processink.api.ProcessingSketch
 import info.kfgodel.processink.api.SketchRunner
-import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.api.extended.ProcessinkApi
+import info.kfgodel.processink.api.original.ProcessingOriginalApi
 import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
 import info.kfgodel.processink.impl.events.DefaultMouseEvent
 import processing.core.PApplet
@@ -18,7 +19,7 @@ val sharedSketch = ThreadLocal<ProcessingSketch>()
  * This class extends Processing PApplet class to delegate processing calls to a ProcessingSketch instance
  * Date: 2/5/20 - 17:49
  */
-class ProcessingApplet : PApplet(), ProcessingApi {
+class ProcessingApplet : PApplet(), ProcessinkApi, ProcessingOriginalApi {
 
   companion object : SketchRunner {
     override fun run(sketch: ProcessingSketch) {
@@ -32,9 +33,11 @@ class ProcessingApplet : PApplet(), ProcessingApi {
     }
   }
 
+
+
   /**
    * Take the shared sketch from the thread local after processing has instantiated us.<br>
-   * It uses an empty sketch if none is found on the threadlocal to avoid NPE
+   * It uses an empty sketch if none is found on the threadlocal and uses default settings
    */
   private val delegateSketch: ProcessingSketch = sharedSketch.get() ?: DefaultSketchBuilder().build()
 
@@ -90,7 +93,7 @@ class ProcessingApplet : PApplet(), ProcessingApi {
     wrapEventAndCall(delegateSketch::onMouseWheel, event)
   }
 
-  private inline fun wrapEventAndCall(functionToCall: (info.kfgodel.processink.api.events.MouseEvent, ProcessingApi)-> Unit, event: MouseEvent?) {
+  private inline fun wrapEventAndCall(functionToCall: (info.kfgodel.processink.api.events.MouseEvent, ProcessinkApi)-> Unit, event: MouseEvent?) {
     functionToCall.invoke(DefaultMouseEvent(event!!), this)
   }
 

@@ -1,8 +1,7 @@
 package info.kfgodel.processink.demos.ants
 
 import info.kfgodel.mathe.api.Vector2D
-import info.kfgodel.processink.api.ext.processing.size
-import info.kfgodel.processink.api.original.ProcessingCanvas
+import info.kfgodel.processink.api.extended.ProcessinkCanvas
 import info.kfgodel.processink.api.visuals.VisualDescription
 import info.kfgodel.processink.api.visuals.basic.BackgroundVisual
 import info.kfgodel.processink.api.visuals.basic.RectangleVisual
@@ -14,20 +13,20 @@ import java.awt.Color
  */
 class AntWorldVisual(private val world: AntWorld) : VisualDescription {
 
-  override fun invoke(canvas: ProcessingCanvas) {
+  override fun invoke(canvas: ProcessinkCanvas) {
     BackgroundVisual(-0x55555556).invoke(canvas)
     val cellSize = calculateCellSize(canvas)
     renderBlackCells(canvas, cellSize)
     renderAnt(canvas, cellSize)
   }
 
-  private fun renderAnt(canvas: ProcessingCanvas, cellSize: Vector2D) {
+  private fun renderAnt(canvas: ProcessinkCanvas, cellSize: Vector2D) {
     canvas.fill(Color.RED.rgb)
     val antRectangle: RectangleVisual = convertToRectangles(world.ant().position(), cellSize)
     antRectangle.invoke(canvas)
   }
 
-  private fun renderBlackCells(canvas: ProcessingCanvas, cellSize: Vector2D) {
+  private fun renderBlackCells(canvas: ProcessinkCanvas, cellSize: Vector2D) {
     canvas.fill(Color.BLACK.rgb)
     world.blackCells().stream()
       .map { blackCell -> convertToRectangles(blackCell, cellSize) }
@@ -39,7 +38,7 @@ class AntWorldVisual(private val world: AntWorld) : VisualDescription {
     return RectangleVisual(position, cellSize)
   }
 
-  private fun calculateCellSize(canvas: ProcessingCanvas): Vector2D {
+  private fun calculateCellSize(canvas: ProcessinkCanvas): Vector2D {
     // Amount of pixels / cells = pixels per cell
     return canvas.size / world.cellSpace()
   }

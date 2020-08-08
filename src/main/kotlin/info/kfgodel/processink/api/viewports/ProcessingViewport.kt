@@ -1,6 +1,6 @@
 package info.kfgodel.processink.api.viewports
 
-import info.kfgodel.processink.api.original.ProcessingSettings
+import info.kfgodel.processink.api.extended.ProcessinkSettings
 
 /**
  * This interface represents a configuration for the display area in which the sketch will be rendered.
@@ -8,5 +8,5 @@ import info.kfgodel.processink.api.original.ProcessingSettings
  *
  * Date: 22/5/20 - 00:16
  */
-interface ProcessingViewport : (ProcessingSettings) -> Unit {
+interface ProcessingViewport : (ProcessinkSettings) -> Unit {
 }

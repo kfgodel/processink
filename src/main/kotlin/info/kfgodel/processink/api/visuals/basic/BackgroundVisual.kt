@@ -1,6 +1,6 @@
 package info.kfgodel.processink.api.visuals.basic
 
-import info.kfgodel.processink.api.original.ProcessingCanvas
+import info.kfgodel.processink.api.extended.ProcessinkCanvas
 import info.kfgodel.processink.api.visuals.VisualDescription
 
 /**
@@ -8,7 +8,7 @@ import info.kfgodel.processink.api.visuals.VisualDescription
  * Created by tenpines on 30/10/15.
  */
 inline class BackgroundVisual(private val color: Int) : VisualDescription {
-  override fun invoke(canvas: ProcessingCanvas) {
+  override fun invoke(canvas: ProcessinkCanvas) {
     canvas.background(color)
   }
 }

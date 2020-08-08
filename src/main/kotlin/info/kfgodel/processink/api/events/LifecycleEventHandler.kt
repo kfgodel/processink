@@ -1,8 +1,8 @@
 package info.kfgodel.processink.api.events
 
-import info.kfgodel.processink.api.original.ProcessingApi
-import info.kfgodel.processink.api.original.ProcessingSettings
-import info.kfgodel.processink.api.original.ProcessingSetup
+import info.kfgodel.processink.api.extended.ProcessinkApi
+import info.kfgodel.processink.api.extended.ProcessinkSettings
+import info.kfgodel.processink.api.extended.ProcessinkSetup
 
 /**
  * This interface defines the lifecycle events Processink calls on a sketch
@@ -15,7 +15,7 @@ interface LifecycleEventHandler {
    * @see [https://processing.org/reference/settings_.html](https://processing.org/reference/settings_.html)
    * @param settings The settings instance to configure processing
    */
-  fun onSettings(settings: ProcessingSettings) {
+  fun onSettings(settings: ProcessinkSettings) {
     settings.defaultSettings()
   }
 
@@ -25,7 +25,7 @@ interface LifecycleEventHandler {
    * @see [https://processing.org/reference/setup_.html](https://processing.org/reference/setup_.html)
    * @param setup The setup instance to configure processing or load resources
    */
-  fun onSetup(setup: ProcessingSetup) {
+  fun onSetup(setup: ProcessinkSetup) {
     setup.defaultSetup()
   }
 
@@ -38,5 +38,5 @@ interface LifecycleEventHandler {
    * @see [https://processing.org/reference/draw_.html](https://processing.org/reference/draw_.html)
    * @param api The api Processing offers to manipulate the pixel space
    */
-  fun onDraw(api: ProcessingApi)
+  fun onDraw(api: ProcessinkApi)
 }

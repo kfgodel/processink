@@ -1,4 +1,4 @@
-package info.kfgodel.processink.api.original
+package info.kfgodel.processink.api.extended
 
 /**
  * This type represents the style options that processing offers for drawing in the canvas

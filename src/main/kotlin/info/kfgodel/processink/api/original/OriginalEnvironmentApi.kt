@@ -1,14 +1,12 @@
 package info.kfgodel.processink.api.original
 
 /**
- * This type represents the Processing API available when defining the sketch settings
- * Date: 2/5/20 - 21:04
+ * This type groups the methods Processing offers to handle the sketch "environment" which defines rendering conditions
+ * like pixel density, viewport size, fullscreen, cursor, etc.
+ *
+ * Date: 8/8/20 - 17:53
  */
-interface ProcessingSettings : AppletWrapper {
-  /**
-   * Default behavior implemented by processing applet to setup the pixel environment.
-   */
-  fun defaultSettings()
+interface OriginalEnvironmentApi {
 
   /**
    * Configures the render space to use a window with indicated size using the default renderer
@@ -62,5 +60,4 @@ interface ProcessingSettings : AppletWrapper {
    * @see [https://processing.org/reference/fullScreen_.html](https://processing.org/reference/fullScreen_.html)
    */
   fun fullScreen(renderer: String, displayID: Int)
-
 }

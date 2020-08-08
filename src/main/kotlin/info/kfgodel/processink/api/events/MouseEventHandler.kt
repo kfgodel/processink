@@ -1,6 +1,6 @@
 package info.kfgodel.processink.api.events
 
-import info.kfgodel.processink.api.original.ProcessingApi
+import info.kfgodel.processink.api.extended.ProcessinkApi
 
 /**
  * This interface groups the mouse events a processink sketch can handle
@@ -14,7 +14,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseClicked(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseClicked(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -24,7 +24,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseDragged(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseDragged(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -34,7 +34,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseEntered(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseEntered(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -44,7 +44,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseExited(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseExited(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -54,7 +54,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseMoved(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseMoved(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -64,7 +64,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMousePressed(event: MouseEvent, api: ProcessingApi) {
+  fun onMousePressed(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -74,7 +74,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseReleased(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseReleased(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 
@@ -84,7 +84,7 @@ interface MouseEventHandler {
    * @param event The mouse event that contains the event data
    * @param api The API to interact with processink
    */
-  fun onMouseWheel(event: MouseEvent, api: ProcessingApi) {
+  fun onMouseWheel(event: MouseEvent, api: ProcessinkApi) {
     //Ignore the event. Same as default Processing behavior
   }
 }

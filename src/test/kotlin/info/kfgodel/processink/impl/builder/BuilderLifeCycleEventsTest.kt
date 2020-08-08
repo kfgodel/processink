@@ -2,9 +2,10 @@ package info.kfgodel.processink.impl.builder
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
-import info.kfgodel.processink.api.original.ProcessingApi
-import info.kfgodel.processink.api.original.ProcessingSettings
-import info.kfgodel.processink.api.original.ProcessingSetup
+import info.kfgodel.processink.api.extended.ProcessinkSettings
+import info.kfgodel.processink.api.extended.ProcessinkSetup
+import info.kfgodel.processink.api.extended.ProcessinkApi
+import info.kfgodel.processink.impl.ProcessingApplet
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
@@ -26,7 +27,7 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
         val sketch by let {builder().build()}
 
         it("uses default settings behavior") {
-          val settings = mockk<ProcessingSettings>()
+          val settings = mockk<ProcessinkSettings>()
           every { settings.defaultSettings() } just Runs
 
           sketch().onSettings(settings)
@@ -34,7 +35,7 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
           verify { settings.defaultSettings() }
         }
         it("uses default setup behavior") {
-          val setup = mockk<ProcessingSetup>()
+          val setup = mockk<ProcessinkSetup>()
           every { setup.defaultSetup() } just Runs
 
           sketch().onSetup(setup)
@@ -42,7 +43,7 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
           verify { setup.defaultSetup() }
         }
         it("uses default draw behavior") {
-          val api = mockk<ProcessingApi>()
+          val api = mockk<ProcessinkApi>()
           every { api.defaultDraw() } just Runs
 
           sketch().onDraw(api)
@@ -54,17 +55,20 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
       describe("when customizing sketch settings"){
         beforeEach {
           builder().withSettings { settings ->
-            settings.fullScreen("a renderer")
+            settings.applet().fullScreen("a renderer")
           }
         }
 
         it("uses custom settings on the sketch"){
           val sketch = builder().build()
 
-          val settings = mockk<ProcessingSettings>(relaxed = true)
+          val settings = mockk<ProcessinkSettings>(relaxed = true)
+          val applet = mockk<ProcessingApplet>(relaxed = true)
+          every { settings.applet() } returns applet
+
           sketch.onSettings(settings)
 
-          verify { settings.fullScreen("a renderer") }
+          verify { applet.fullScreen("a renderer") }
           verify(exactly = 0) { settings.defaultSettings() }
         }
       }
@@ -72,17 +76,20 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
       describe("when customizing sketch setup"){
         beforeEach {
           builder().withSetup { setup ->
-            setup.fullScreen("other renderer")
+            setup.applet().fullScreen("other renderer")
           }
         }
 
         it("uses custom setup on the sketch"){
           val sketch = builder().build()
 
-          val setup = mockk<ProcessingSetup>(relaxed = true)
+          val setup = mockk<ProcessinkSetup>(relaxed = true)
+          val applet = mockk<ProcessingApplet>(relaxed = true)
+          every { setup.applet() } returns applet
+
           sketch.onSetup(setup)
 
-          verify { setup.fullScreen("other renderer") }
+          verify { applet.fullScreen("other renderer") }
           verify(exactly = 0) { setup.defaultSetup() }
         }
       }
@@ -97,7 +104,7 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
         it("uses custom draw on the sketch"){
           val sketch = builder().build()
 
-          val api = mockk<ProcessingApi>(relaxed = true)
+          val api = mockk<ProcessinkApi>(relaxed = true)
           sketch.onDraw(api)
 
           verify { api.background(3) }

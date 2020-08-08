@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
  * Date: 23/5/20 - 15:55
  */
 @RunWith(JavaSpecRunner::class)
-class ProcessingCanvasKtTest : KotlinSpec() {
+class ProcessinkCanvasTest : KotlinSpec() {
   override fun define() {
     describe("a canvas") {
       val canvas by let { ProcessingApplet() }

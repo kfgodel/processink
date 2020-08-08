@@ -1,8 +1,7 @@
 package info.kfgodel.processink.demos.conway.visuals
 
 import info.kfgodel.mathe.api.Vector2D
-import info.kfgodel.processink.api.ext.processing.size
-import info.kfgodel.processink.api.original.ProcessingCanvas
+import info.kfgodel.processink.api.extended.ProcessinkCanvas
 import info.kfgodel.processink.api.visuals.VisualDescription
 import info.kfgodel.processink.api.visuals.basic.RectangleVisual
 import info.kfgodel.processink.demos.conway.camera.Snapshot
@@ -14,19 +13,19 @@ import java.awt.Color
  */
 class SnapshotVisual(private val snapshot: Snapshot) : VisualDescription {
 
-  override fun invoke(canvas: ProcessingCanvas) {
+  override fun invoke(canvas: ProcessinkCanvas) {
     val cellSize = calculateCellSize(canvas)
     renderWith(Color.BLACK.rgb, snapshot.survivingCells(), canvas, cellSize)
     renderWith(Color.RED.rgb, snapshot.dyingCells(), canvas, cellSize)
     renderWith(Color.GREEN.rgb, snapshot.emergingCells(), canvas, cellSize)
   }
 
-  private fun calculateCellSize(canvas: ProcessingCanvas): Vector2D {
+  private fun calculateCellSize(canvas: ProcessinkCanvas): Vector2D {
     // available pixels over amount of cells = pixels per cell
     return canvas.size / snapshot.dimension()
   }
 
-  private fun renderWith(color: Int, cells: List<Vector2D>, canvas: ProcessingCanvas, cellSize: Vector2D) {
+  private fun renderWith(color: Int, cells: List<Vector2D>, canvas: ProcessinkCanvas, cellSize: Vector2D) {
     canvas.fill(color)
     cells.stream()
       .map { cell -> this.convertToRectangles(cell, cellSize) }

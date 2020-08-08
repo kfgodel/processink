@@ -1,4 +1,7 @@
-package info.kfgodel.processink.api.original
+package info.kfgodel.processink.api.extended
+
+import info.kfgodel.mathe.api.Vector2D
+import info.kfgodel.mathe.impl.V2
 
 /**
  * This type represents the visual space that can be drawn on.<br></br>
@@ -6,7 +9,7 @@ package info.kfgodel.processink.api.original
  *
  * Created by kfgodel on 26/10/15.
  */
-interface ProcessingCanvas : AppletWrapper, ProcessingStyle {
+interface ProcessinkCanvas : AppletWrapper, ProcessingStyle {
   /**
    * Default behavior implemented by Processing to draw a single frame
    */
@@ -20,6 +23,12 @@ interface ProcessingCanvas : AppletWrapper, ProcessingStyle {
    * Current with of the pixel area
    */
   fun height(): Int
+
+  /**
+   * Gets the canvas size as a 2d vector using the width and height as coordinates
+   */
+  val size: Vector2D
+    get() = V2(this.width(), this.height())
 
   /**
    * Draws a text string positioned under the indicated coordinates according to the current
@@ -58,3 +67,4 @@ interface ProcessingCanvas : AppletWrapper, ProcessingStyle {
    */
   fun rect(x: Float, y: Float, width: Float, height: Float)
 }
+
