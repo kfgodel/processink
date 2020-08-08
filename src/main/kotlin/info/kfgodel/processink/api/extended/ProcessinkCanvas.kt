@@ -9,7 +9,7 @@ import info.kfgodel.mathe.impl.V2
  *
  * Created by kfgodel on 26/10/15.
  */
-interface ProcessinkCanvas : AppletWrapper, ProcessingStyle {
+interface ProcessinkCanvas : AppletWrapper {
   /**
    * Default behavior implemented by Processing to draw a single frame
    */

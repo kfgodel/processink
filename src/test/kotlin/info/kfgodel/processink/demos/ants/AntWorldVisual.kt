@@ -21,13 +21,13 @@ class AntWorldVisual(private val world: AntWorld) : VisualDescription {
   }
 
   private fun renderAnt(canvas: ProcessinkCanvas, cellSize: Vector2D) {
-    canvas.fill(Color.RED.rgb)
+    canvas.applet().fill(Color.RED.rgb)
     val antRectangle: RectangleVisual = convertToRectangles(world.ant().position(), cellSize)
     antRectangle.invoke(canvas)
   }
 
   private fun renderBlackCells(canvas: ProcessinkCanvas, cellSize: Vector2D) {
-    canvas.fill(Color.BLACK.rgb)
+    canvas.applet().fill(Color.BLACK.rgb)
     world.blackCells().stream()
       .map { blackCell -> convertToRectangles(blackCell, cellSize) }
       .forEach { rectangle -> rectangle.invoke(canvas) }

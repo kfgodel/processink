@@ -26,7 +26,7 @@ class SnapshotVisual(private val snapshot: Snapshot) : VisualDescription {
   }
 
   private fun renderWith(color: Int, cells: List<Vector2D>, canvas: ProcessinkCanvas, cellSize: Vector2D) {
-    canvas.fill(color)
+    canvas.applet().fill(color)
     cells.stream()
       .map { cell -> this.convertToRectangles(cell, cellSize) }
       .forEach { rectangle -> rectangle.invoke(canvas) }

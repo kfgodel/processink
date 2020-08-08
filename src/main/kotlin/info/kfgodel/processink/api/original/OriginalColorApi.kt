@@ -14,4 +14,11 @@ interface OriginalColorApi {
    */
   fun background(rgb: Int)
 
+  /**
+   * Defines the inner fill color to use for newly drawn shapes
+   * @param rgb The color definition
+   * @see [https://processing.org/reference/fill_.html](https://processing.org/reference/fill_.html)
+   */
+  fun fill(rgb: Int)
+
 }
