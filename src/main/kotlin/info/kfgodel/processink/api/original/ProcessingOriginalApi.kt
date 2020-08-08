@@ -15,4 +15,5 @@ package info.kfgodel.processink.api.original
 interface ProcessingOriginalApi :
   OriginalEnvironmentApi,
   OriginalTypographyApi,
-  OriginalShapeApi
+  OriginalShapeApi,
+  OriginalColorApi
