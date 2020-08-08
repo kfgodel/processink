@@ -9,6 +9,6 @@ import info.kfgodel.processink.api.visuals.VisualDescription
  */
 inline class BackgroundVisual(private val color: Int) : VisualDescription {
   override fun invoke(canvas: ProcessinkCanvas) {
-    canvas.background(color)
+    canvas.applet().background(color)
   }
 }

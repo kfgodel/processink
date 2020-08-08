@@ -14,6 +14,6 @@ import info.kfgodel.processink.api.visuals.VisualDescription
 class TextVisual(private val text: String, private val position: Vector2D) : VisualDescription {
 
   override fun invoke(canvas: ProcessinkCanvas) {
-    canvas.text(text, position.x().float, position.y().float)
+    canvas.applet().text(text, position.x().float, position.y().float)
   }
 }

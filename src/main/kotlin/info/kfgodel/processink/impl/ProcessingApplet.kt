@@ -96,5 +96,4 @@ class ProcessingApplet : PApplet(), ProcessinkApi, ProcessingOriginalApi {
   private inline fun wrapEventAndCall(functionToCall: (info.kfgodel.processink.api.events.MouseEvent, ProcessinkApi)-> Unit, event: MouseEvent?) {
     functionToCall.invoke(DefaultMouseEvent(event!!), this)
   }
-
 }

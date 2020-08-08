@@ -9,6 +9,18 @@ package info.kfgodel.processink.api.original
 interface OriginalEnvironmentApi {
 
   /**
+   * Current with of the sketch pixel area
+   * @see [https://processing.org/reference/width.html](https://processing.org/reference/width.html)
+   */
+  fun width(): Int
+
+  /**
+   * Current height of the sketch pixel area
+   * @see [https://processing.org/reference/height.html](https://processing.org/reference/height.html)
+   */
+  fun height(): Int
+
+  /**
    * Configures the render space to use a window with indicated size using the default renderer
    * @param width The width of the viewport in pixels
    * @param height The height of the viewport in pixels

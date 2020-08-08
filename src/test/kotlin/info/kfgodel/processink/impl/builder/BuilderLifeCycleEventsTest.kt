@@ -2,9 +2,9 @@ package info.kfgodel.processink.impl.builder
 
 import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
+import info.kfgodel.processink.api.extended.ProcessinkApi
 import info.kfgodel.processink.api.extended.ProcessinkSettings
 import info.kfgodel.processink.api.extended.ProcessinkSetup
-import info.kfgodel.processink.api.extended.ProcessinkApi
 import info.kfgodel.processink.impl.ProcessingApplet
 import io.mockk.Runs
 import io.mockk.every
@@ -97,7 +97,7 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
       describe("when customizing sketch drawing"){
         beforeEach {
           builder().drawing { api ->
-            api.background(3)
+            api.applet().background(3)
           }
         }
 
@@ -105,9 +105,12 @@ class BuilderLifeCycleEventsTest : KotlinSpec() {
           val sketch = builder().build()
 
           val api = mockk<ProcessinkApi>(relaxed = true)
+          val applet = mockk<ProcessingApplet>(relaxed = true)
+          every { api.applet() } returns applet
+
           sketch.onDraw(api)
 
-          verify { api.background(3) }
+          verify { applet.background(3) }
           verify(exactly = 0) { api.defaultDraw() }
         }
       }

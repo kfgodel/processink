@@ -13,4 +13,6 @@ package info.kfgodel.processink.api.original
  * Date: 8/8/20 - 17:39
  */
 interface ProcessingOriginalApi :
-  OriginalEnvironmentApi
+  OriginalEnvironmentApi,
+  OriginalTypographyApi,
+  OriginalShapeApi

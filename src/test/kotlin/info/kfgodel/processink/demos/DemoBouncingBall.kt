@@ -4,6 +4,7 @@ import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.extended.ProcessinkApi
 import info.kfgodel.processink.api.viewports.WindowViewport
 import info.kfgodel.processink.api.visuals.basic.BackgroundVisual
+import info.kfgodel.processink.api.visuals.basic.EllipseVisual
 import info.kfgodel.processink.demos.ball.BouncingBall
 import info.kfgodel.processink.impl.ProcessingApplet
 import info.kfgodel.processink.impl.builder.DefaultSketchBuilder
@@ -44,8 +45,7 @@ private fun animate(ball: BouncingBall) {
 }
 
 private fun BouncingBall.renderWith(canvas: ProcessinkApi) {
-  val ellipseCenter = this.position() * canvas.size
-  val ellipseDimensions = canvas.size.scaledBy(this.diameter())
-  canvas.ellipse(ellipseCenter.component1().float, ellipseCenter.component2().float,
-    ellipseDimensions.component1().float, ellipseDimensions.component2().float)
+  val ellipseCenter = this.position() * canvas.size()
+  val ellipseDimensions = canvas.size().scaledBy(this.diameter())
+  EllipseVisual(ellipseCenter, ellipseDimensions).invoke(canvas)
 }

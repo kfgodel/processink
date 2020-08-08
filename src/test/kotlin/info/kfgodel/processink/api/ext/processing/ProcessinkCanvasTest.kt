@@ -18,7 +18,7 @@ class ProcessinkCanvasTest : KotlinSpec() {
       val canvas by let { ProcessingApplet() }
 
       it("allows access to its size as a vector"){
-        assertThat(canvas().size).isEqualTo(100 x 100) // It's that size by default in processing
+        assertThat(canvas().size()).isEqualTo(100 x 100) // It's that size by default in processing
       }
     }
   }

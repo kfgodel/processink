@@ -40,6 +40,6 @@ class AntWorldVisual(private val world: AntWorld) : VisualDescription {
 
   private fun calculateCellSize(canvas: ProcessinkCanvas): Vector2D {
     // Amount of pixels / cells = pixels per cell
-    return canvas.size / world.cellSpace()
+    return canvas.size() / world.cellSpace()
   }
 }

@@ -22,7 +22,7 @@ class SnapshotVisual(private val snapshot: Snapshot) : VisualDescription {
 
   private fun calculateCellSize(canvas: ProcessinkCanvas): Vector2D {
     // available pixels over amount of cells = pixels per cell
-    return canvas.size / snapshot.dimension()
+    return canvas.size() / snapshot.dimension()
   }
 
   private fun renderWith(color: Int, cells: List<Vector2D>, canvas: ProcessinkCanvas, cellSize: Vector2D) {

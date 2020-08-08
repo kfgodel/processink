@@ -4,6 +4,8 @@ import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.extended.ProcessinkCanvas
+import info.kfgodel.processink.impl.ProcessingApplet
+import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.runner.RunWith
@@ -20,10 +22,12 @@ class EllipseVisualTest : KotlinSpec() {
 
       it("draws an ellipse when applied on a processing canvas") {
         val canvas = mockk<ProcessinkCanvas>(relaxed = true)
+        val applet = mockk<ProcessingApplet>(relaxed = true)
+        every { canvas.applet() } returns applet
 
         visual().invoke(canvas)
 
-        verify { canvas.ellipse(1f, 2f, 100f, 200f) }
+        verify { applet.ellipse(1f, 2f, 100f, 200f) }
       }
     }
   }
