@@ -1,6 +1,7 @@
 package info.kfgodel.processink.api.viewports
 
 import info.kfgodel.processink.api.extended.ProcessinkSettings
+import info.kfgodel.processink.api.original.OriginalEnvironmentApi
 import info.kfgodel.processink.api.renderers.ProcessingRenderer
 
 /**
@@ -11,20 +12,20 @@ import info.kfgodel.processink.api.renderers.ProcessingRenderer
 class FullscreenViewport(
   private val renderer: ProcessingRenderer? = null,
   private val displayId: Int? = null
-) : ProcessingViewport {
+) : ProcessinkViewport, (ProcessinkSettings) -> Unit {
 
-  override fun invoke(settings: ProcessinkSettings) {
+  override fun configure(environmentApi: OriginalEnvironmentApi) {
     if(renderer == null){
       if(displayId == null){
-        settings.applet().fullScreen()
+        environmentApi.fullScreen()
       }else{
-        settings.applet().fullScreen(displayId)
+        environmentApi.fullScreen(displayId)
       }
     }else {
       if(displayId == null){
-        settings.applet().fullScreen(renderer.id)
+        environmentApi.fullScreen(renderer.id)
       }else{
-        settings.applet().fullScreen(renderer.id, displayId)
+        environmentApi.fullScreen(renderer.id, displayId)
       }
     }
   }

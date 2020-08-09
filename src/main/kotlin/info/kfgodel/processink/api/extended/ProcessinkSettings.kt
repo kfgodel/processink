@@ -1,6 +1,6 @@
 package info.kfgodel.processink.api.extended
 
-import info.kfgodel.processink.api.viewports.ProcessingViewport
+import info.kfgodel.processink.api.viewports.ProcessinkViewport
 
 /**
  * This type represents the Processing API available when defining the sketch settings
@@ -15,8 +15,8 @@ interface ProcessinkSettings : AppletWrapper {
   /**
    * Configures the sketch display area and renderer by using a viewport definition
    */
-  fun viewport(viewport: ProcessingViewport) {
-    viewport.invoke(this)
+  fun viewport(viewport: ProcessinkViewport) {
+    viewport.configure(this.applet())
   }
 }
 

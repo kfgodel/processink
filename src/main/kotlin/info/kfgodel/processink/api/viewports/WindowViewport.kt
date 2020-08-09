@@ -3,7 +3,7 @@ package info.kfgodel.processink.api.viewports
 import info.kfgodel.mathe.api.Vector2D
 import info.kfgodel.processink.api.ext.vector.x
 import info.kfgodel.processink.api.ext.vector.y
-import info.kfgodel.processink.api.extended.ProcessinkSettings
+import info.kfgodel.processink.api.original.OriginalEnvironmentApi
 import info.kfgodel.processink.api.renderers.ProcessingRenderer
 
 /**
@@ -15,16 +15,16 @@ class WindowViewport(
   private val size: Vector2D,
   private val renderer: ProcessingRenderer? = null,
   private val outputPath: String? = null
-) : ProcessingViewport {
+) : ProcessinkViewport {
 
-  override fun invoke(settings: ProcessinkSettings) {
+  override fun configure(environmentApi: OriginalEnvironmentApi) {
     if(renderer == null){
-      settings.applet().size(size.x().toInt(), size.y().toInt())
+      environmentApi.size(size.x().toInt(), size.y().toInt())
     }else{
       if(outputPath == null){
-        settings.applet().size(size.x().toInt(), size.y().toInt(), renderer.id)
+        environmentApi.size(size.x().toInt(), size.y().toInt(), renderer.id)
       }else{
-        settings.applet().size(size.x().toInt(), size.y().toInt(), renderer.id, outputPath)
+        environmentApi.size(size.x().toInt(), size.y().toInt(), renderer.id, outputPath)
       }
     }
   }
