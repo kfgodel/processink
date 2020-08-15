@@ -4,9 +4,8 @@ import info.kfgodel.jspek.api.JavaSpecRunner
 import info.kfgodel.jspek.api.KotlinSpec
 import info.kfgodel.mathe.api.ext.x
 import info.kfgodel.processink.api.extended.ProcessinkCanvas
-import info.kfgodel.processink.impl.ProcessingApplet
-import io.mockk.every
-import io.mockk.mockk
+import info.kfgodel.processink.tests.delegating
+import info.kfgodel.processink.tests.mockApplet
 import io.mockk.verify
 import org.junit.runner.RunWith
 
@@ -21,9 +20,8 @@ class TextVisualTest : KotlinSpec() {
       val visual by let { TextVisual("a text", 1 x 2) }
 
       it("draws text on a canvas in the given position") {
-        val canvas = mockk<ProcessinkCanvas>(relaxed = true)
-        val applet = mockk<ProcessingApplet>(relaxed = true)
-        every { canvas.applet() } returns applet
+        val applet = mockApplet()
+        val canvas = delegating<ProcessinkCanvas>(to = applet)
 
         visual().invoke(canvas)
 
